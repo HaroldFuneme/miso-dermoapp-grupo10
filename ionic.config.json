@@ -1,0 +1,7 @@
+{
+  "name": "miso-dermoapp-grupo10",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
