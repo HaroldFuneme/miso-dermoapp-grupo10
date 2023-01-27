@@ -7,7 +7,7 @@ phases:
       - npm install
   build:
     commands:
-      - echo Build started on `date`
+      - echo Build started on date "+%H:%M:%S -- %d/%m/%y"
       - echo Compiling the dist folder
       - npm run build
       - npx cap add android
