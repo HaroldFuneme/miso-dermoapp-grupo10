@@ -16,6 +16,13 @@
 
   <div id="container">
     <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <p *ngIf="position" >Sensor:  <a target="_blank" rel="noopener noreferrer" href="{{ url }}">Go to Google Map</a></p>
+    <p *ngIf="position" >latitude:  {{ position.coords.latitude}}</p>
+    <p *ngIf="position" >longitude:  {{ position.coords.longitude}}</p>
+    <p *ngIf="position" >altitude:  {{ position.coords.altitude}}</p>
+    <p *ngIf="position" >accuracy:  {{ position.coords.accuracy}}</p>
   </div>
 </ion-content>
+<ion-button (click)="onClick()">
+  Test GPS
+</ion-button>
