@@ -3,22 +3,30 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo Installing source NPM dependencies...
+      - echo ******************************   STEP PRE_BUILD  ******************************
+      - echo ******************************   Installing source NPM dependencies...   ******************************
       - npm install
+      - echo ******************************   FINISH STEP PRE_BUILD  ******************************
   build:
     commands:
-      - echo Build started on date "+%H:%M:%S -- %d/%m/%y"
+      - echo ******************************   STEP BUILD  ******************************
+      - echo ******************************   Build started on `date` ******************************
       - echo Compiling the dist folder
       - npm run build
+      - echo ******************************   STARTING CONSTRUCTION ANDROID PLATFORM  ******************************
       - npx cap add android
+      - echo ******************************   FINISH STEP BUILD  ******************************
   post_build:
     commands:
+      - echo ******************************   STEP POST_BUILD  ******************************
+      - cd android
+      - ./gradlew assembleDebug
       - echo Build completed on `date`
+      - echo ******************************   FINISH STEP POST_BUILD  ******************************
 # Include only the files required for your application to run.
 artifacts:
   files:
     - index.js
     - dist/**/*
-    - request-map.js
-    - credentials.json
     - node_modules/**/*
+    - android/build/outputs/apk/bebug/**
