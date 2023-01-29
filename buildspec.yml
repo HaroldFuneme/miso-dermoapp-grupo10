@@ -30,7 +30,7 @@ phases:
   
       - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
       - sudo mkdir -p $ANDROID_SDK_ROOT
-      - sudo apt-get install openjdk-8-jdk
+      - sudo apt install openjdk-8-jdk -y
       - cd $ANDROID_SDK_ROOT
       - curl --location --show-error  --url "https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip" -o "$ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip"
       - unzip $ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
