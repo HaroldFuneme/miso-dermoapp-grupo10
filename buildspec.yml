@@ -47,7 +47,5 @@ phases:
 
 artifacts:
   files:
-    - index.js
-    - dist/**/*
-    - node_modules/**/*
-    - android/build/outputs/apk/bebug/**
+    - '**/*'
+  base-directory: 'android/build/outputs/apk/bebug/*'
