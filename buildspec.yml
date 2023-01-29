@@ -29,6 +29,7 @@ phases:
       - rm /tmp/gradle-7.4.2-all.zip
   
       - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+      - export CURRENT_PATH=$PWD
       - sudo mkdir -p $ANDROID_SDK_ROOT
       - sudo apt install openjdk-8-jdk -y
       - cd $ANDROID_SDK_ROOT
@@ -36,10 +37,11 @@ phases:
       - unzip $ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
       - mv cmdline-tools/cmdline-tools/ cmdline-tools/tools
       - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+      - echo var-path =   $PATH
       - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
-      - yes | sudo sdkmanager --licenses
+      # - yes | sudo sdkmanager --licenses
      
-      - cd android
+      - cd $CURRENT_PATH/android
 
       - chmod 777 gradlew
       - ./gradlew assembleDebug
