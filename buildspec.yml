@@ -13,13 +13,35 @@ phases:
       - echo ******************************   Build started on `date` ******************************
       - echo Compiling the dist folder
       - npm run build
-      - echo ******************************   STARTING CONSTRUCTION ANDROID PLATFORM  ******************************
-      - npx cap add android
+      - echo ******************************   STARTING BUILDING ANDROID PLATFORM  ******************************
+     # - npx cap build android
       - echo ******************************   FINISH STEP BUILD  ******************************
   post_build:
     commands:
       - echo ******************************   STEP POST_BUILD  ******************************
+      - apt update
+      - apt install curl -y
+      - apt install unzip -y
+      - apt install apt-get -y
+      - apt-get update
+      - curl --location --show-error  --url "https://services.gradle.org/distributions/gradle-7.4.2-all.zip" -o "/tmp/gradle-7.4.2-all.zip"
+      - unzip /tmp/gradle-7.4.2-all.zip -d /tmp/gradle-7.4.2
+      - rm /tmp/gradle-7.4.2-all.zip
+  
+      - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+      - sudo mkdir -p $ANDROID_SDK_ROOT
+      - sudo apt-get install openjdk-8-jdk
+      - cd $ANDROID_SDK_ROOT
+      - curl --location --show-error  --url "https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip" -o "$ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip"
+      - unzip $ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
+      - mv cmdline-tools/cmdline-tools/ cmdline-tools/tools
+      - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+      - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+      - yes | sudo sdkmanager --licenses
+     
       - cd android
+
+      - chmod 777 gradlew
       - ./gradlew assembleDebug
       - echo Build completed on `date`
       - echo ******************************   FINISH STEP POST_BUILD  ******************************
