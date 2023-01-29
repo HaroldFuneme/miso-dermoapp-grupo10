@@ -36,8 +36,9 @@ phases:
       - unzip $ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
       - mv cmdline-tools/cmdline-tools/ cmdline-tools/tools
       - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+      - echo var-path =   $PATH
       - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
-      - yes | sudo sdkmanager --licenses
+      # - yes | sudo sdkmanager --licenses
      
       - cd android
 
