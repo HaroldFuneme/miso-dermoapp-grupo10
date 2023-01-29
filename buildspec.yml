@@ -1,4 +1,3 @@
-# Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
 version: 0.2
 phases:
   pre_build:
@@ -37,7 +36,7 @@ phases:
       - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
       - echo var-path =   $PATH
       - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
-      # - yes | sudo sdkmanager --licenses
+      - yes | sdkmanager --licenses
      
       - cd $CURRENT_PATH/android
 
@@ -45,7 +44,7 @@ phases:
       - ./gradlew assembleDebug
       - echo Build completed on `date`
       - echo ******************************   FINISH STEP POST_BUILD  ******************************
-# Include only the files required for your application to run.
+
 artifacts:
   files:
     - index.js
