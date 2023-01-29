@@ -1,24 +1,51 @@
-# Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
 version: 0.2
 phases:
   pre_build:
     commands:
-      - echo Installing source NPM dependencies...
+      - echo ******************************   STEP PRE_BUILD  ******************************
+      - echo ******************************   Installing source NPM dependencies...   ******************************
       - npm install
+      - echo ******************************   FINISH STEP PRE_BUILD  ******************************
   build:
     commands:
-      - echo Build started on date "+%H:%M:%S -- %d/%m/%y"
+      - echo ******************************   STEP BUILD  ******************************
+      - echo ******************************   Build started on `date` ******************************
       - echo Compiling the dist folder
       - npm run build
-      - npx cap add android
+      - echo ******************************   STARTING BUILDING ANDROID PLATFORM  ******************************
+     # - npx cap build android
+      - echo ******************************   FINISH STEP BUILD  ******************************
   post_build:
     commands:
+      - echo ******************************   STEP POST_BUILD  ******************************
+      - apt update
+      - apt install curl -y
+      - apt install unzip -y
+      - curl --location --show-error  --url "https://services.gradle.org/distributions/gradle-7.4.2-all.zip" -o "/tmp/gradle-7.4.2-all.zip"
+      - unzip /tmp/gradle-7.4.2-all.zip -d /tmp/gradle-7.4.2
+      - rm /tmp/gradle-7.4.2-all.zip
+  
+      - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+      - export CURRENT_PATH=$PWD
+      - sudo mkdir -p $ANDROID_SDK_ROOT
+      - sudo apt install openjdk-8-jdk -y
+      - cd $ANDROID_SDK_ROOT
+      - curl --location --show-error  --url "https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip" -o "$ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip"
+      - unzip $ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
+      - mv cmdline-tools/cmdline-tools/ cmdline-tools/tools
+      - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+      - echo var-path =   $PATH
+      - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+      - yes | sdkmanager --licenses
+     
+      - cd $CURRENT_PATH/android
+
+      - chmod 777 gradlew
+      - ./gradlew assembleDebug
       - echo Build completed on `date`
-# Include only the files required for your application to run.
+      - echo ******************************   FINISH STEP POST_BUILD  ******************************
+
 artifacts:
   files:
-    - index.js
-    - dist/**/*
-    - request-map.js
-    - credentials.json
-    - node_modules/**/*
+    - '**/*'
+  base-directory: 'android/build/outputs/apk/bebug/*'
