@@ -22,8 +22,8 @@ phases:
       - apt update
       - apt install curl -y
       - apt install unzip -y
-      - apt install apt-get -y
-      - apt-get update
+      # - apt install apt-get -y
+      # - apt-get update
       - curl --location --show-error  --url "https://services.gradle.org/distributions/gradle-7.4.2-all.zip" -o "/tmp/gradle-7.4.2-all.zip"
       - unzip /tmp/gradle-7.4.2-all.zip -d /tmp/gradle-7.4.2
       - rm /tmp/gradle-7.4.2-all.zip
