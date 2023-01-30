@@ -47,4 +47,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: 'android*'
+  base-directory: 'android/app/build/outputs*'
