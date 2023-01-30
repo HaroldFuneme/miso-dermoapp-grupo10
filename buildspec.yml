@@ -44,7 +44,6 @@ phases:
       - ./gradlew assembleDebug
       - echo Build completed on `date`
       - echo ******************************   FINISH STEP POST_BUILD  ******************************
-
 artifacts:
   files:
     - '**/*'
