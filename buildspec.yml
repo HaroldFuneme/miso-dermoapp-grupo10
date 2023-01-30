@@ -39,7 +39,6 @@ phases:
       - yes | sdkmanager --licenses
      
       - cd $CURRENT_PATH/android
-
       - chmod 777 gradlew
       - ./gradlew assembleDebug
       - echo Build completed on `date`
