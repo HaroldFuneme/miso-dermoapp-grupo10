@@ -9,7 +9,9 @@ phases:
       - npm install
       - npx cap add android
       - cp AndroidManifest.xml ./android/app/src/main
+      # Update libs
       - apt update
+      - apt-get update
       - apt install unzip -y
       - apt install curl -y
       # Headless Chrome
