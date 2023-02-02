@@ -17,8 +17,10 @@ phases:
       - dpkg -i google-chrome*.deb
       - sudo adduser --quiet --gecos "Usuario Test" --disabled-password test
       - echo "test:123" | sudo chpasswd
-      - su - test npm run lint
-      - su - test npm run test:ci
+      - su test | 123
+      - su test npm run lint
+      - su test npm run test:ci
+      - su -
       - npm install
       - npx cap add android
       - cp AndroidManifest.xml ./android/app/src/main
