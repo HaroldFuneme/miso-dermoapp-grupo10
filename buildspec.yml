@@ -34,8 +34,7 @@ phases:
       - yes | sdkmanager --licenses
       - cd $CURRENT_PATH/android
       - chmod 777 gradlew
-
-      - cd android && ./gradlew assembleDebug
+      - ./gradlew assembleDebug
       - echo ******************************   FINISH STEP BUILD  ******************************
 artifacts:
   files:
