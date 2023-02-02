@@ -39,4 +39,5 @@ phases:
       - echo ******************************   FINISH STEP BUILD  ******************************
 artifacts:
   files:
-    - 'android/app/build/outputs/apk/debug/*.apk'
+    - '*.apk'
+  base-directory: 'android/app/build/outputs/apk/debug/'
