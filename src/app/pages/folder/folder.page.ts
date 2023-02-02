@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Geolocation, Position } from '@capacitor/geolocation';
-import { DemoService } from '../services/demo.service';
+import { DemoService } from '../../services/demo.service';
 
 @Component({
   selector: 'app-folder',
