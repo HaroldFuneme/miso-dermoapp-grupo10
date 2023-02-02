@@ -12,6 +12,8 @@ phases:
       - apt update
       - apt install unzip -y
       - apt install curl -y
+      - npm run lint
+      - npm run test:ci
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
   build:
     commands:
