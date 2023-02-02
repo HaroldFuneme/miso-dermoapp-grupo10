@@ -14,6 +14,7 @@ module.exports = function (config) {
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
+
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here
@@ -53,8 +54,14 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://www.npmjs.com/search?q=keywords:karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadlessNoSandbox'],
 
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+      base: 'ChromeHeadless',
+      flags: ['--no-sandbox']
+    }
+    },
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
