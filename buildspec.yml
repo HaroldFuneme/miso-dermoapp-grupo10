@@ -15,7 +15,7 @@ phases:
       - apt install unzip -y
       - apt install curl -y
       # Headless Chromium-browser
-      - apt-get install chromium-browser
+      - apt-get install chromium-browser -y
       - npm run lint
       - npm run test:ci
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
