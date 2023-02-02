@@ -8,6 +8,7 @@ phases:
       - export CURRENT_PATH=$PWD
       - npm install
       - npx cap add android
+      - cp AndroidManifest.xml ./android/app/src/main
       - apt update
       - apt install unzip -y
       - apt install curl -y
