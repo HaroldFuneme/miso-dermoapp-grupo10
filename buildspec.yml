@@ -14,10 +14,8 @@ phases:
       - apt-get update
       - apt install unzip -y
       - apt install curl -y
-      # Headless Chrome
-      - apt-get install -y fonts-liberation libasound2 libnspr4 libnss3 libx11-xcb1 xdg-utils libxss1 libappindicator1 libindicator7 libgbm1 libu2f-udev
-      - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      - dpkg -i google-chrome*.deb  --no-sandbox
+      # Headless Chromium-browser
+      - apt-get install chromium-browser
       - npm run lint
       - npm run test:ci
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
