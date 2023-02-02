@@ -6,6 +6,9 @@ phases:
       - echo ******************************   Installing source NPM dependencies...   ******************************
       - npm install
       - npx cap add android
+      - apt update
+      - apt install unzip -y
+      - apt install curl -y
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
   build:
     commands:
