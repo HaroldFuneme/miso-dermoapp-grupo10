@@ -17,7 +17,7 @@ phases:
       - dpkg -i google-chrome*.deb
       - sudo adduser --quiet --gecos "Usuario Test" --disabled-password test
       - echo "test:123" | sudo chpasswd
-      - su test | 123
+      - su test | "123"
       - su test npm run lint
       - su test npm run test:ci
       - su -
