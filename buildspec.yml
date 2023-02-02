@@ -6,6 +6,9 @@ phases:
       - echo ******************************   Installing source NPM dependencies...   ******************************
       - npm install
       - npx cap add android
+      - apt update
+      - apt install unzip -y
+      - apt install curl -y
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
   build:
     commands:
@@ -15,6 +18,21 @@ phases:
       - echo ******************************   STARTING BUILDING ANDROID PLATFORM  ******************************
       - npx cap sync
       - npx cap copy
+
+      - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+      - export CURRENT_PATH=$PWD
+      - sudo mkdir -p $ANDROID_SDK_ROOT
+      - sudo apt install openjdk-8-jdk -y
+      - cd $ANDROID_SDK_ROOT
+      - curl --location --show-error  --url "https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip" -o "$ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip"
+      - unzip $ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
+      - mv cmdline-tools/cmdline-tools/ cmdline-tools/tools
+      - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+      - echo var-path =   $PATH
+      - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+      - yes | sudo sdkmanager --licenses
+      - chmod 777 gradlew
+
       - cd android && ./gradlew assembleDebug
       - echo ******************************   FINISH STEP BUILD  ******************************
 artifacts:
