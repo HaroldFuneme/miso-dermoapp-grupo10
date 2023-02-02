@@ -16,6 +16,8 @@ phases:
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - dpkg -i google-chrome*.deb
       - npm install
+      - npm run lint
+      - npm run test:ci
       - npx cap add android
       - cp AndroidManifest.xml ./android/app/src/main
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
