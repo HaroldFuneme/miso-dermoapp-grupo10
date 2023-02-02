@@ -4,6 +4,8 @@ phases:
     commands:
       - echo ******************************   STEP PRE_BUILD  ******************************
       - echo ******************************   Installing source NPM dependencies...   ******************************
+      - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+      - export CURRENT_PATH=$PWD
       - npm install
       - npx cap add android
       - apt update
@@ -19,8 +21,7 @@ phases:
       - npx cap sync
       - npx cap copy
 
-      - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
-      - export CURRENT_PATH=$PWD
+      
       - sudo mkdir -p $ANDROID_SDK_ROOT
       - sudo apt install openjdk-8-jdk -y
       - cd $ANDROID_SDK_ROOT
@@ -31,9 +32,9 @@ phases:
       - echo var-path =   $PATH
       - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
       - yes | sdkmanager --licenses
+      - cd $CURRENT_PATH/android
       - chmod 777 gradlew
-
-      - cd android && ./gradlew assembleDebug
+      - ./gradlew assembleDebug
       - echo ******************************   FINISH STEP BUILD  ******************************
 artifacts:
   files:
