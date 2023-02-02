@@ -17,7 +17,7 @@ phases:
       # Headless Chrome
       - apt-get install -y fonts-liberation libasound2 libnspr4 libnss3 libx11-xcb1 xdg-utils libxss1 libappindicator1 libindicator7 libgbm1 libu2f-udev
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      - dpkg -i google-chrome*.deb
+      - dpkg -i google-chrome*.deb  --no-sandbox
       - npm run lint
       - npm run test:ci
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
