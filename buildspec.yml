@@ -6,9 +6,6 @@ phases:
       - echo ******************************   Installing source NPM dependencies...   ******************************
       - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
       - export CURRENT_PATH=$PWD
-      - npm install
-      - npx cap add android
-      - cp AndroidManifest.xml ./android/app/src/main
       # Update libs
       - apt update
       - apt-get update
@@ -18,9 +15,12 @@ phases:
       - apt-get install -y fonts-liberation libasound2 libnspr4 libnss3 libx11-xcb1 xdg-utils libxss1 libappindicator1 libindicator7 libgbm1 libu2f-udev
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - dpkg -i google-chrome*.deb
-      - adduser “usuario_test”
-      - su - usuario_test npm run lint
-      - su - usuario_test npm run test:ci
+      - adduser test
+      - su - test npm run lint
+      - su - test npm run test:ci
+      - npm install
+      - npx cap add android
+      - cp AndroidManifest.xml ./android/app/src/main
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
   build:
     commands:
