@@ -6,12 +6,20 @@ phases:
       - echo ******************************   Installing source NPM dependencies...   ******************************
       - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
       - export CURRENT_PATH=$PWD
-      - npm install
-      - npx cap add android
-      - cp AndroidManifest.xml ./android/app/src/main
+      # Update libs
       - apt update
+      - apt-get update
       - apt install unzip -y
       - apt install curl -y
+      # Headless Chrome-browser
+      - apt-get install -y fonts-liberation libasound2 libnspr4 libnss3 libx11-xcb1 xdg-utils libxss1 libappindicator1 libindicator7 libgbm1 libu2f-udev
+      - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - dpkg -i google-chrome*.deb
+      - npm install
+      - npm run lint
+      - npm run test:ci
+      - npx cap add android
+      - cp AndroidManifest.xml ./android/app/src/main
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
   build:
     commands:
@@ -22,7 +30,6 @@ phases:
       - npx cap sync
       - npx cap copy
 
-      
       - sudo mkdir -p $ANDROID_SDK_ROOT
       - sudo apt install openjdk-8-jdk -y
       - cd $ANDROID_SDK_ROOT
@@ -30,7 +37,7 @@ phases:
       - unzip $ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
       - mv cmdline-tools/cmdline-tools/ cmdline-tools/tools
       - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
-      - echo var-path =   $PATH
+      - echo var-path = $PATH
       - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
       - yes | sdkmanager --licenses
       - cd $CURRENT_PATH/android
