@@ -5,45 +5,18 @@ phases:
       - echo ******************************   STEP PRE_BUILD  ******************************
       - echo ******************************   Installing source NPM dependencies...   ******************************
       - npm install
+      - npx cap add android
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
   build:
     commands:
       - echo ******************************   STEP BUILD  ******************************
       - echo ******************************   Build started on `date` ******************************
       - echo Compiling the dist folder
-      - npm run build
       - echo ******************************   STARTING BUILDING ANDROID PLATFORM  ******************************
-     # - npx cap build android
+      - npx cap sync
+      - npx cap copy
+      - cd android && ./gradlew assembleDebug
       - echo ******************************   FINISH STEP BUILD  ******************************
-  post_build:
-    commands:
-      - echo ******************************   STEP POST_BUILD  ******************************
-      - apt update
-      - apt install curl -y
-      - apt install unzip -y
-      - curl --location --show-error  --url "https://services.gradle.org/distributions/gradle-7.4.2-all.zip" -o "/tmp/gradle-7.4.2-all.zip"
-      - unzip /tmp/gradle-7.4.2-all.zip -d /tmp/gradle-7.4.2
-      - rm /tmp/gradle-7.4.2-all.zip
-  
-      - export ANDROID_SDK_ROOT=/usr/lib/android-sdk
-      - export CURRENT_PATH=$PWD
-      - sudo mkdir -p $ANDROID_SDK_ROOT
-      - sudo apt install openjdk-8-jdk -y
-      - cd $ANDROID_SDK_ROOT
-      - curl --location --show-error  --url "https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip" -o "$ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip"
-      - unzip $ANDROID_SDK_ROOT/commandlinetools-linux-6858069_latest.zip -d $ANDROID_SDK_ROOT/cmdline-tools
-      - mv cmdline-tools/cmdline-tools/ cmdline-tools/tools
-      - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
-      - echo var-path =   $PATH
-      - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
-      - yes | sdkmanager --licenses
-     
-      - cd $CURRENT_PATH/android
-      - chmod 777 gradlew
-      - ./gradlew assembleDebug
-      - echo Build completed on `date`
-      - echo ******************************   FINISH STEP POST_BUILD  ******************************
 artifacts:
   files:
-    - '**/*'
-  base-directory: 'android/app/build/outputs*'
+    - 'android/app/build/outputs/apk/release/*.apk'
