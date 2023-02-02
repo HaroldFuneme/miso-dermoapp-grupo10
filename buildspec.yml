@@ -30,7 +30,7 @@ phases:
       - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
       - echo var-path =   $PATH
       - cd $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
-      - yes | sudo sdkmanager --licenses
+      - yes | sdkmanager --licenses
       - chmod 777 gradlew
 
       - cd android && ./gradlew assembleDebug
