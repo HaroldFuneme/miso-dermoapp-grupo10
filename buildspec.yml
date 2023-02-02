@@ -18,6 +18,7 @@ phases:
       - npm install
       - npm run lint
       - npm run test:ci
+      - ionic build
       - npx cap add android
       - cp AndroidManifest.xml ./android/app/src/main
       - echo ******************************   FINISH STEP PRE_BUILD  ******************************
