@@ -7,8 +7,7 @@ import {
   TranslateService,
   TranslateStore,
   TranslateCompiler,
-  TranslateParser,
-  MissingTranslationHandler
+  TranslateParser
 } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
@@ -23,6 +22,11 @@ describe('FolderPage', () => {
     // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
     handle(){}
   };
+  class MissingTranslationHandler {
+    handle(key: string) {
+      return 'Traducción faltante: ' + key;
+    }
+  }
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -38,6 +42,7 @@ describe('FolderPage', () => {
         { provide: USE_STORE, useValue: undefined },
         { provide: USE_EXTEND, useValue: undefined },
         { provide: DEFAULT_LANGUAGE, useValue: undefined },
+        { provide: MissingTranslationHandler, useValue: MissingTranslationHandler },
         {
           provide: TranslateLoader,
           useFactory: (http: HttpClient) => new TranslateHttpLoader(http, '/assets/i18n/', '.json'),
