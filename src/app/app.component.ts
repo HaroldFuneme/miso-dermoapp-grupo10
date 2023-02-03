@@ -15,8 +15,8 @@ export class AppComponent {
     { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor(private traslateService: TranslateService) {
-    this.traslateService.setDefaultLang('Español');
-    this.traslateService.addLangs(['English', 'Español']);
+  constructor(private translateService: TranslateService) {
+    this.translateService.setDefaultLang('Español');
+    this.translateService.addLangs(['English', 'Español']);
   }
 }

@@ -33,7 +33,9 @@ export function HttpLoaderFactory(httpClient: HttpClient){
     }),
 
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    TranslateService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
