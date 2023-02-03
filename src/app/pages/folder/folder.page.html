@@ -24,8 +24,8 @@
     <p *ngIf="position" >accuracy:  {{ position.coords.accuracy}}</p>
   </div>
 </ion-content>
-<ion-select contentId="lang-content" interface="action-sheet" placeholder="Select language" (ionChange)="changeLang($event)">
-    <ion-select-option *ngFor="let lang of lagns">{{lang}}</ion-select-option>
+<ion-select contentId="lang-content" placeholder="Select language" (ionChange)="changeLang($event)">
+    <ion-select-option *ngFor="let lang of lagns">H{{lang}}</ion-select-option>
 </ion-select>
 <ion-button (click)="onClick()">
   {{ "Test_GPS" | translate }}

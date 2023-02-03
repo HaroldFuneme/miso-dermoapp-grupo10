@@ -1,6 +1,4 @@
 {
-  "REGISTRARSE" : "Sign In",
-  "CREAR_CUENTA": "Create Account",
-  "Test_GPS": "Test GPS",
-  "GREETINGS": "Hello, welcome to the DermoApp application!"
+  "SIGN_IN" : "Sign In",
+  "CREATE_ACCOUNT": "Create Account"
 }
