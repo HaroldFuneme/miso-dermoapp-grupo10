@@ -16,6 +16,7 @@
 
   <div id="container">
     <strong class="capitalize">{{ folder }}</strong>
+    <h3>{{"GREETINGS" | translate}}</h3>
     <p *ngIf="position" >Sensor:  <a target="_blank" rel="noopener noreferrer" href="{{ url }}">Go to Google Map</a></p>
     <p *ngIf="position" >latitude:  {{ position.coords.latitude}}</p>
     <p *ngIf="position" >longitude:  {{ position.coords.longitude}}</p>
@@ -23,6 +24,9 @@
     <p *ngIf="position" >accuracy:  {{ position.coords.accuracy}}</p>
   </div>
 </ion-content>
+<ion-select contentId="lang-content" interface="action-sheet" placeholder="Select language" (ionChange)="changeLang($event)">
+    <ion-select-option *ngFor="let lang of lagns">{{lang}}</ion-select-option>
+</ion-select>
 <ion-button (click)="onClick()">
-  Test GPS
+  {{ "Test_GPS" | translate }}
 </ion-button>
