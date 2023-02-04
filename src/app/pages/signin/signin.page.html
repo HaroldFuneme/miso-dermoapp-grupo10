@@ -1,0 +1,26 @@
+<ion-content class="ion-padding">
+  <div>
+    <ion-img class="logo" src="../../../assets/img/Logo_DermoApp.png" alt="DermoApp logo"></ion-img>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <label>{{"EMAIL"| translate}}</label>
+    <input type="text" placeholder="{{'ENTEREMAIL'|translate}}">
+    <label>{{"PASSWORD"| translate}}</label>
+    <input type="text" placeholder="{{'ENTERPASS' | translate}}">
+  </div>
+
+  <div class="center">
+    <div>
+      <ion-button class="bt_login" >{{'LOGIN'| translate}}</ion-button>
+    </div>
+  </div>
+
+  <div>
+    <a href="">{{ "FORGOTPASS" | translate}}</a>
+  </div>
+  <div>
+    <a (click)="goBack()">{{ "SIGNIN" | translate}}</a>
+  </div>
+
+</ion-content>

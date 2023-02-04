@@ -48,6 +48,7 @@ describe('AppComponent', () => {
         TranslateService, TranslateStore, TranslateCompiler, TranslateParser
       ]
     }).compileComponents();
+
   }));
 
   it('should create the app', waitForAsync(() => {

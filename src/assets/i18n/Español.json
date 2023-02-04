@@ -1,4 +1,15 @@
 {
-  "SIGN_IN" : "Registrarse",
-  "CREATE_ACCOUNT": "Crear Cuenta"
+  "SIGNIN" : "Registrarse",
+  "CREATEACCOUNT": "Crear Cuenta",
+  "LOGIN": "Iniciar Sesión",
+  "FORGOTPASS": "¿Olvidaste tu contraseña?",
+  "EMAIL": "Correo",
+  "PASSWORD": "Contraseña",
+  "ENTEREMAIL": "Ingrese su dirección de correo electrónico",
+  "ENTERPASS": "Ingrese su contraseña",
+  "ENTERNAME": "Ingrese su nombre completo",
+  "USERREGISTER": "Registro de Usuario",
+  "CITY": "Ciudad",
+  "DATEBIRTH": "Fecha de nacimiento",
+  "AGREETERM": "¿Está de acuerdo con los términos y condiciones?"
 }

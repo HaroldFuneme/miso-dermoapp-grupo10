@@ -1,4 +1,21 @@
 {
-  "SIGN_IN" : "Sign In",
-  "CREATE_ACCOUNT": "Create Account"
+  "SIGNIN" : "Sign In",
+  "CREATEACCOUNT": "Create Account",
+  "LOGIN": "Login",
+  "FORGOTPASS": "Forgot your password?",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "ENTEREMAIL": "Enter your email address",
+  "ENTERPASS": "Enter your password",
+  "ENTERNAME": "Enter your full name",
+  "USERREGISTER": "User Register",
+  "CITY": "City",
+  "DATEBIRTH": "Date of Birth",
+  "AGREETERM": "Agree with terms & conditions?",
+  "ALERTTERMS": {
+    "header": "Alert",
+    "subHeader": "Important message",
+    "message": "In order to use our App and/or receive our Services, you must be at least 18 years of age, or the legal age of majority in your jurisdiction, and possess the legal authority, right, and liberty to enter into these Terms as a binding agreement. . You are not allowed to use this application and / or receive services if doing so is prohibited in your country or under any law or regulation applicable to you.",
+    "buttons": ["Accept"]
+  }
 }

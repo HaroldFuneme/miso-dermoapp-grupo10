@@ -6,17 +6,16 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
   public languages: string [] = [];
 
   constructor(
-    private translateService: TranslateService
-    ) {
+    private translateService: TranslateService,
+  ) {
     this.translateService.setDefaultLang('English');
     this.translateService.addLangs(['English', 'Español']);
-    this.languages = translateService.getLangs();
   }
 
-  changeLang(event){
-    this.translateService.use(event.detail.value);
-  }
+
+
 }
