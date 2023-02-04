@@ -21,7 +21,6 @@ export class CreateaccountPage implements OnInit {
   }
 
   async presentAlert() {
-    console.log(this.translateService.currentLang);
     let alertLangMessage: string;
     let alertSubHeader: string;
     let alertHeader: string;

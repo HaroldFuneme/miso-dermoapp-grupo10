@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { SigninPage } from './signin.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('SigninPage', () => {
   let component: SigninPage;
@@ -10,7 +11,10 @@ describe('SigninPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SigninPage ],
-      imports: [IonicModule.forRoot()]
+      imports: [
+        IonicModule.forRoot(),
+        TranslateModule.forRoot(),
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SigninPage);

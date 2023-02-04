@@ -32,13 +32,7 @@ describe('StartPage', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [
       RouterTestingModule.withRoutes([]),
-      TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-        }
-      }),
+      TranslateModule.forRoot(),
       HttpClientTestingModule
       ],
       providers:[
