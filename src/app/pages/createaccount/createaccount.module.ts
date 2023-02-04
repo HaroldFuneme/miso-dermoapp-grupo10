@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { CreateaccountPageRoutingModule } from './createaccount-routing.module';
 
-import { HomePage } from './home.page';
+import { CreateaccountPage } from './createaccount.page';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
+    CreateaccountPageRoutingModule,
     TranslateModule
   ],
-  declarations: [HomePage]
+  declarations: [CreateaccountPage]
 })
-export class HomePageModule {}
+export class CreateaccountPageModule {}

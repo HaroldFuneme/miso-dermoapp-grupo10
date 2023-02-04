@@ -1,26 +1,32 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
-
-import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
-import { AppComponent } from './app.component';
-import { DEFAULT_LANGUAGE, TranslateModule, USE_DEFAULT_LANG, USE_EXTEND, USE_STORE } from '@ngx-translate/core';
-import { HttpLoaderFactory } from './app.module';
-import { HttpClient, HttpHandler } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { IonicModule } from '@ionic/angular';
 import {
-  TranslateCompiler,
+  TranslateModule,
   TranslateLoader,
-  TranslateParser,
+  USE_DEFAULT_LANG,
+  USE_STORE,
+  USE_EXTEND,
+  DEFAULT_LANGUAGE,
   TranslateService,
-  TranslateStore } from '@ngx-translate/core';
+  TranslateStore,
+  TranslateCompiler,
+  TranslateParser
+} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AppComponent } from 'src/app/app.component';
+import { HttpLoaderFactory } from 'src/app/app.module';
 
-describe('AppComponent', () => {
+import { StartPage } from './start.page';
 
+describe('StartPage', () => {
+  let component: StartPage;
+  let fixture: ComponentFixture<StartPage>;
 
   beforeEach(waitForAsync(() => {
-
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -49,15 +55,12 @@ describe('AppComponent', () => {
       ]
     }).compileComponents();
 
+    fixture = TestBed.createComponent(StartPage);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   }));
 
-  it('should create the app', waitForAsync(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-
-
-
-
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

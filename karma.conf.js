@@ -15,6 +15,19 @@ module.exports = function (config) {
       require('@angular-devkit/build-angular/plugins/karma')
     ],
 
+    
+
+    // list of files to exclude
+    exclude: [
+      '*.spec.ts'
+    ],
+
+    // preprocess matching files before serving them to the browser
+    	// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+      'app/*.ts': ['coverage']  
+    },
+
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here
@@ -43,7 +56,7 @@ module.exports = function (config) {
         }
       }
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'coverage'],
     port: 9876,
 
 

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+
+    <ion-title>User Register</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button><ion-icon name="ellipsis-vertical"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<div style="margin-top: 3rem;">
+  <input type="text" placeholder="Enter your full name">
+  <input type="text" placeholder="Email">
+  <input type="text" placeholder="Date of Birth">
+  <input type="text" placeholder="City">
+  <input type="text" placeholder="Password">
+  <input type="text" placeholder="Password">
+</div>
+
+
+
+<ion-list>
+  <ion-radio-group center [allowEmptySelection]="true" value="turtles">
+    <ion-item class="center" lines="none">
+      <ion-radio (click)="presentAlert()" slot="start" value="agree"></ion-radio>
+      <div>Agree with terms & conditions</div>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
+
+<ion-button color="secondary" shape="round" class="bt_user_register">{{ 'User Register' }}</ion-button>
+
+
+
+<ion-content>
+
+  <ion-tabs>
+
+    <ion-tab-bar color="primary" slot="bottom">
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="search"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="settings">
+        <ion-icon name="heart"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="account">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>

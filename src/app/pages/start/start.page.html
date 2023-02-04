@@ -1,0 +1,20 @@
+<ion-content>
+  <ion-content class="ion-padding">
+    <ion-select contentId="lang-content" placeholder="Select language" (ionChange)="changeLang($event)">
+      <ion-select-option *ngFor="let lang of languages">{{lang}}</ion-select-option>
+    </ion-select>
+
+    <div>
+      <ion-img class="logo" src="../../../assets/img/Logo_DermoApp.png" alt="DermoApp logo"></ion-img>
+    </div>
+
+    <div class="center">
+      <div>
+        <ion-button class="bt_sign" (click)="goSignin()">{{"SIGNIN"|translate}}</ion-button>
+      </div>
+      <div>
+        <ion-button color="secondary" class="bt_create_account" (click)="goCreateAccount()">{{"CREATEACCOUNT"|translate}}</ion-button>
+      </div>
+    </div>
+  </ion-content>
+</ion-content>

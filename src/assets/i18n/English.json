@@ -1,4 +1,4 @@
 {
-  "SIGN_IN" : "Sign In",
-  "CREATE_ACCOUNT": "Create Account"
+  "SIGNIN" : "Sign In",
+  "CREATEACCOUNT": "Create Account"
 }
