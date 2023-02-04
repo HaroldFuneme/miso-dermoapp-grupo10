@@ -10,10 +10,12 @@
 
     <div class="center">
       <div>
-        <ion-button class="bt_sign" (click)="signIn()">{{"SIGNIN"|translate}}</ion-button>
+        <ion-button class="bt_sign" (click)="goSignin()">{{"SIGNIN"|translate}}</ion-button>
+        <!-- <ion-button class="bt_sign" (click)="signIn()">{{"SIGNIN"|translate}}</ion-button> -->
       </div>
       <div>
-        <ion-button color="secondary" class="bt_create_account" (click)="createUser()">{{"CREATEACCOUNT"|translate}}</ion-button>
+        <ion-button color="secondary" class="bt_create_account" (click)="goCreateAccount()">{{"CREATEACCOUNT"|translate}}</ion-button>
+        <!-- <ion-button color="secondary" class="bt_create_account" (click)="createUser()">{{"CREATEACCOUNT"|translate}}</ion-button> -->
       </div>
     </div>
   </ion-content>
