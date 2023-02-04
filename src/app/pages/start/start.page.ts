@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { Auth } from 'aws-amplify';
 
 @Component({
   selector: 'app-start',
@@ -25,6 +26,32 @@ export class StartPage implements OnInit {
 
   changeLang(event){
     this.translateService.use(event.detail.value);
+  }
+
+  async createUser() {
+    console.log('creating user!!');
+    try {
+      const { user } = await Auth.signUp({
+        username: 'Harold',
+        password: 'HaroldFuneme92%',
+        attributes: {
+          birthdate: '01012023',
+          email: 'h.funeme@uniandes.edu.co', // required
+        },
+      });
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async signIn() {
+    try {
+      const user = await Auth.signIn('Harold', 'HaroldFuneme92%');
+      console.log(user);
+    } catch (error) {
+      console.log('error signing in', error);
+    }
   }
 
   goCreateAccount(){
