@@ -4,23 +4,23 @@
   </div>
 
   <div style="margin-top: 3rem;">
-    <label>Email</label>
-    <input type="text" placeholder="Enter your email address">
-    <label>Password</label>
-    <input type="text" placeholder="Enter your password">
+    <label>{{"EMAIL"| translate}}</label>
+    <input type="text" placeholder="{{'ENTEREMAIL'|translate}}">
+    <label>{{"PASSWORD"| translate}}</label>
+    <input type="text" placeholder="{{'ENTERPASS' | translate}}">
   </div>
 
   <div class="center">
     <div>
-      <ion-button class="bt_login" >{{ 'Log In'   }}</ion-button>
+      <ion-button class="bt_login" >{{'LOGIN'| translate}}</ion-button>
     </div>
   </div>
 
   <div>
-    <a href="">Forgot your password?</a>
+    <a href="">{{ "FORGOTPASS" | translate}}</a>
   </div>
   <div>
-    <a href="/start">Sign In</a>
+    <a (click)="goBack()">{{ "SIGNIN" | translate}}</a>
   </div>
 
 </ion-content>
