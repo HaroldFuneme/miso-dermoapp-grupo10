@@ -32,10 +32,11 @@ export class StartPage implements OnInit {
     console.log('creating user!!');
     try {
       const { user } = await Auth.signUp({
-        username: 'Harold',
+        username: 'h.funeme@uniandes.edu.co',
         password: 'HaroldFuneme92%',
         attributes: {
-          birthdate: '01012023',
+          name: 'Harold',
+          birthdate: '01/01/2023',
           email: 'h.funeme@uniandes.edu.co', // required
         },
       });
@@ -47,7 +48,7 @@ export class StartPage implements OnInit {
 
   async signIn() {
     try {
-      const user = await Auth.signIn('Harold', 'HaroldFuneme92%');
+      const user = await Auth.signIn('h.funeme@uniandes.edu.co', 'HaroldFuneme92%');
       console.log(user);
     } catch (error) {
       console.log('error signing in', error);

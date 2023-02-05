@@ -14,12 +14,12 @@
 
 
 <div style="margin-top: 3rem;">
-  <input type="text" placeholder="{{'ENTERNAME'|translate}}">
-  <input type="text" placeholder="{{'EMAIL'|translate}}">
-  <input type="text" placeholder="{{'DATEBIRTH'|translate}}">
-  <input type="text" placeholder="{{'CITY'|translate}}">
-  <input type="text" placeholder="{{'PASSWORD'|translate}}">
-  <input type="text" placeholder="{{'PASSWORD'|translate}}">
+  <input type="text" placeholder="{{'ENTERNAME'|translate}}" [(ngModel)]="name">
+  <input type="text" placeholder="{{'EMAIL'|translate}}" [(ngModel)]="email">
+  <input type="text" placeholder="{{'DATEBIRTH'|translate}}" [(ngModel)]="datebirth">
+  <input type="text" placeholder="{{'CITY'|translate}}" [(ngModel)]="city">
+  <input type="text" placeholder="{{'PASSWORD'|translate}}" [(ngModel)]="password">
+  <input type="text" placeholder="{{'PASSWORD'|translate}}" [(ngModel)]="passwordc">
 </div>
 
 
@@ -27,13 +27,14 @@
 <ion-list>
   <ion-radio-group center [allowEmptySelection]="true" value="turtles">
     <ion-item class="center" lines="none">
-      <ion-radio (click)="presentAlert()" slot="start" value="agree"></ion-radio>
+      <ion-radio (click)="presentAlert()" slot="start" value="agree" ></ion-radio>
       <div>{{"AGREETERM"|translate}}</div>
     </ion-item>
   </ion-radio-group>
 </ion-list>
 
-<ion-button color="secondary" shape="round" class="bt_user_register">{{ 'USERREGISTER'|translate }}</ion-button>
+<ion-button color="secondary" shape="round" class="bt_user_register" (click)="createUser()">{{ 'USERREGISTER'|translate
+  }}</ion-button>
 
 
 
