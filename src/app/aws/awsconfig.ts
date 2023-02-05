@@ -18,7 +18,7 @@ export const awsconfig = {
     // PROD
     // userPoolWebClientId: 'cjbbfes0arcc2npbqp8d3i3k',
     // LOCAL
-    userPoolWebClientId: '2ml8j75arhqs3p8cj12g7eiblu',
+    userPoolWebClientId: 'cjbbfes0arcc2npbqp8d3i3k',
 
     // OPTIONAL - Enforce user authentication prior to accessing AWS resources or not
     // mandatorySignIn: false,
