@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +10,16 @@ import { Router } from '@angular/router';
 export class DermatologicalProfileRegisterPage implements OnInit {
 
 
+
+  dermatologicalForm = new FormGroup({
+    phototypes: new FormControl('',[Validators.required]),
+    skintone: new FormControl('',[Validators.required]),
+    eyecolor: new FormControl('',[Validators.required]),
+    haircoloring: new FormControl('',[Validators.required]),
+    taneffect: new FormControl('',[Validators.required]),
+    tolerance: new FormControl('',[Validators.required]),
+  });
+
   constructor(
     private router: Router,
   ) { }
@@ -18,7 +29,8 @@ export class DermatologicalProfileRegisterPage implements OnInit {
 
   sendRegister(){
     console.log('Send register');
-    this.goHome();
+    console.log(this.dermatologicalForm.value);
+      //this.goHome();
   }
 
   goBack() {

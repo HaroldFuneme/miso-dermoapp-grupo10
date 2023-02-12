@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-button (click)="goBack()" ><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+      <ion-button (click)="goBack()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
     </ion-buttons>
 
     <ion-title>{{"DERMATOLOGICALTITLE"|translate}}</ion-title>
@@ -17,9 +17,12 @@
   <ion-img class="logo" src="../../../assets/img/fototipo-fitzpatrick.png" alt="DermoApp logo"></ion-img>
 </div>
 
+<form [formGroup]="dermatologicalForm" (ngSubmit)="sendRegister()">
+
   <div>
-    <ion-item >
-      <ion-select placeholder="Phototypes (I - VI)" interface="action-sheet">
+    <ion-item lines="full">
+      <ion-select formControlName="phototypes" required requiredError="Debes seleccionar una opción"
+        placeholder="Phototypes (I - VI)" interface="action-sheet">
         <ion-select-option value="1">Phototype I</ion-select-option>
         <ion-select-option value="2">Phototype II</ion-select-option>
         <ion-select-option value="3">Phototype III</ion-select-option>
@@ -29,70 +32,109 @@
       </ion-select>
     </ion-item>
   </div>
-  <div>
-    <ion-item >
-      <ion-select placeholder="Your skin tone" interface="action-sheet">
-        <ion-select-option value="apples">Phototype I</ion-select-option>
-        <ion-select-option value="oranges">Phototype II</ion-select-option>
-        <ion-select-option value="bananas">Phototype III</ion-select-option>
-        <ion-select-option value="bananas">Phototype IV</ion-select-option>
-        <ion-select-option value="bananas">Phototype V</ion-select-option>
-        <ion-select-option value="bananas">Phototype VI</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </div>  
-  <div>
-    <ion-item >
-      <ion-select placeholder="Eye color" interface="action-sheet">
-        <ion-select-option value="apples">Phototype I</ion-select-option>
-        <ion-select-option value="oranges">Phototype II</ion-select-option>
-        <ion-select-option value="bananas">Phototype III</ion-select-option>
-        <ion-select-option value="bananas">Phototype IV</ion-select-option>
-        <ion-select-option value="bananas">Phototype V</ion-select-option>
-        <ion-select-option value="bananas">Phototype VI</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </div>  
-  <div>
-    <ion-item >
-      <ion-select placeholder="Hair coloring" interface="action-sheet">
-        <ion-select-option value="apples">Phototype I</ion-select-option>
-        <ion-select-option value="oranges">Phototype II</ion-select-option>
-        <ion-select-option value="bananas">Phototype III</ion-select-option>
-        <ion-select-option value="bananas">Phototype IV</ion-select-option>
-        <ion-select-option value="bananas">Phototype V</ion-select-option>
-        <ion-select-option value="bananas">Phototype VI</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </div>  
-  <div>
-    <ion-item >
-      <ion-select placeholder="Tan effect" interface="action-sheet">
-        <ion-select-option value="apples">Phototype I</ion-select-option>
-        <ion-select-option value="oranges">Phototype II</ion-select-option>
-        <ion-select-option value="bananas">Phototype III</ion-select-option>
-        <ion-select-option value="bananas">Phototype IV</ion-select-option>
-        <ion-select-option value="bananas">Phototype V</ion-select-option>
-        <ion-select-option value="bananas">Phototype VI</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </div>  
-  <div>
-    <ion-item >
-      <ion-select placeholder="Sun tolerance" interface="action-sheet">
-        <ion-select-option value="apples">Phototype I</ion-select-option>
-        <ion-select-option value="oranges">Phototype II</ion-select-option>
-        <ion-select-option value="bananas">Phototype III</ion-select-option>
-        <ion-select-option value="bananas">Phototype IV</ion-select-option>
-        <ion-select-option value="bananas">Phototype V</ion-select-option>
-        <ion-select-option value="bananas">Phototype VI</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </div>  
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.phototypes.valid && dermatologicalForm.controls.phototypes.touched">*
+      The field is required </ion-label>
+  </div>
 
+  <div>
+    <ion-item>
+      <ion-select formControlName="skintone" required placeholder="Your skin tone" interface="action-sheet">
+        <ion-select-option value="Pale White">Pale White</ion-select-option>
+        <ion-select-option value="White">White</ion-select-option>
+        <ion-select-option value="Darker White">Darker White</ion-select-option>
+        <ion-select-option value="Light Brown">Light Brown</ion-select-option>
+        <ion-select-option value="Brown">Brown</ion-select-option>
+        <ion-select-option value="Darker Brown or Black">Darker Brown or Black</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.skintone.valid && dermatologicalForm.controls.skintone.touched">*
+      The field is required </ion-label>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-select formControlName="eyecolor" required placeholder="Eye color" interface="action-sheet">
+        <ion-select-option value="chestnut">Chestnut</ion-select-option>
+        <ion-select-option value="honey">Honey color</ion-select-option>
+        <ion-select-option value="green">Green</ion-select-option>
+        <ion-select-option value="blue">Blue</ion-select-option>
+        <ion-select-option value="gray">Gray</ion-select-option>
+        <ion-select-option value="various">Various colors</ion-select-option>
+        <ion-select-option value="black">Black</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.eyecolor.valid && dermatologicalForm.controls.eyecolor.touched">*
+      The field is required </ion-label>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-select formControlName="haircoloring" required placeholder="Hair coloring" interface="action-sheet">
+        <ion-select-option value="black">Black</ion-select-option>
+        <ion-select-option value="chestnut">Chestnut</ion-select-option>
+        <ion-select-option value="blond">Blond</ion-select-option>
+        <ion-select-option value="red">Red or Orange Red</ion-select-option>
+        <ion-select-option value="grey">Grey</ion-select-option>
+        <ion-select-option value="white">White</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.haircoloring.valid && dermatologicalForm.controls.haircoloring.touched">*
+      The field is required </ion-label>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-select formControlName="taneffect" required placeholder="Tan effect" interface="action-sheet">
+        <ion-select-option value="always">I Always Burn</ion-select-option>
+        <ion-select-option value="sometimes">Sometimes I Burn</ion-select-option>
+        <ion-select-option value="occasionally">Occasionally I Burn</ion-select-option>
+        <ion-select-option value="easy">Tan Easy Little I Burn</ion-select-option>
+        <ion-select-option value="rarely">I Rarely burn easy Tan</ion-select-option>
+        <ion-select-option value="never">I never burn</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.taneffect.valid && dermatologicalForm.controls.taneffect.touched">*
+      The field is required </ion-label>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-select formControlName="tolerance" required placeholder="Sun tolerance" interface="action-sheet">
+        <ion-select-option value="very sensible">Very Sensible</ion-select-option>
+        <ion-select-option value="sensible">Sensible</ion-select-option>
+        <ion-select-option value="sensitive">Sensitive</ion-select-option>
+        <ion-select-option value="normal">Normal</ion-select-option>
+        <ion-select-option value="tolerates sun">Tolerates Sun</ion-select-option>
+        <ion-select-option value="very tolerant">Very Tolerant</ion-select-option>
+        <ion-select-option value="high tolerance">High Tolerance</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.tolerance.valid && dermatologicalForm.controls.tolerance.touched">*
+      The field is required </ion-label>
+  </div>
+
+</form>
 
 <div class="center">
-  <ion-button (click)="sendRegister()" color="secondary" class="bt_create_account" >{{"DERMATOLOGICALPROFILEREGISTER"|translate}}</ion-button>
+  <ion-button [disabled]="!dermatologicalForm.valid" (click)="sendRegister()" color="secondary"
+    class="bt_create_account">{{"DERMATOLOGICALPROFILEREGISTER"|translate}}</ion-button>
 </div>
 
 
@@ -125,4 +167,3 @@
   </ion-tabs>
 
 </ion-content>
-
