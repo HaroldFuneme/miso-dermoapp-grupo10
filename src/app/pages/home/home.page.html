@@ -7,17 +7,44 @@
     <ion-title>{{"HOME"|translate}}</ion-title>
 
     <ion-buttons slot="end">
-      <ion-button><ion-icon name="ellipsis-vertical"></ion-icon></ion-button>
+      <ion-button>
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-
 <ion-content>
+
+
+  <ion-card>
+    <ion-item >
+      <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+      </ion-thumbnail>
+
+      <ion-label lines="full">
+        <h2>Maecenas case1 Test</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button >
+          <ion-icon class="ion-icon-card" name="person"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-card>
+  
 
 </ion-content>
 
-<ion-content>
+<ion-footer class="ion-no-border">
+
+  <div class="center">
+    <ion-button  (click)="caseRegister()" color="secondary"
+      class="bt_cases_register">{{"CASESREGISTER"|translate}}</ion-button>
+  </div>
 
   <ion-tabs>
 
@@ -44,7 +71,4 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-
-</ion-content>
-
-
+</ion-footer>

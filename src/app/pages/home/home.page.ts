@@ -15,6 +15,10 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 
+  caseRegister(){
+    console.log('go to create register');
+  }
+
   goBack() {
     this.router.navigateByUrl('/start');
   }
