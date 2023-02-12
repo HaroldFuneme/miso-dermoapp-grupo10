@@ -63,10 +63,6 @@ export class CreateaccountPage implements OnInit {
     await alert.present();
   }
 
-  goBack() {
-    this.router.navigateByUrl('/start');
-  }
-
   async showErrorTerms() {
     let alertLangMessage: string;
     let alertSubHeader: string;
@@ -119,7 +115,7 @@ export class CreateaccountPage implements OnInit {
     });
 
     await alert.present();
-    this.goBack();
+    this.goDermatologicalProfile();
 
   }
 
@@ -145,5 +141,13 @@ export class CreateaccountPage implements OnInit {
         }
       }
     }
+  }
+
+  goBack() {
+    this.router.navigateByUrl('/start');
+  }
+
+  goDermatologicalProfile(){
+    this.router.navigateByUrl('/dermatological-profile-register');
   }
 }

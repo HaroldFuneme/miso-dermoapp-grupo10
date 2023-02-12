@@ -11,5 +11,8 @@
   "USERREGISTER": "Registro de Usuario",
   "CITY": "Ciudad",
   "DATEBIRTH": "Fecha de nacimiento",
-  "AGREETERM": "¿Está de acuerdo con los términos y condiciones?"
+  "AGREETERM": "¿Está de acuerdo con los términos y condiciones?",
+  "DERMATOLOGICALTITLE": "Registro de perfil Dermatologico",
+  "DERMATOLOGICALPROFILEREGISTER": "Registro Perfil Dermatologico",
+  "HOME": "Inicio - Casos Registrados"
 }

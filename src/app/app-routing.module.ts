@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -21,11 +22,14 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'dermatological-profile-register',
-    loadChildren: () => import('./pages/dermatological-profile-register/dermatological-profile-register.module').then( m => m.DermatologicalProfileRegisterPageModule)
+    // eslint-disable-next-line max-len
+    loadChildren: () => import('./pages/dermatological-profile-register/dermatological-profile-register.module').then( m => m.DermatologicalProfileRegisterPageModule),
+    canActivate: [AuthGuard]
   },
 
 ];

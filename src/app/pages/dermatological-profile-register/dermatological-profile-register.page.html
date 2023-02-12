@@ -1,9 +1,128 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>dermatologicalProfileRegister</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" ><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+
+    <ion-title>{{"DERMATOLOGICALTITLE"|translate}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button><ion-icon name="ellipsis-vertical"></ion-icon></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
+<div>
+  <ion-img class="logo" src="../../../assets/img/fototipo-fitzpatrick.png" alt="DermoApp logo"></ion-img>
+</div>
+
+  <div>
+    <ion-item >
+      <ion-select placeholder="Phototypes (I - VI)" interface="action-sheet">
+        <ion-select-option value="1">Phototype I</ion-select-option>
+        <ion-select-option value="2">Phototype II</ion-select-option>
+        <ion-select-option value="3">Phototype III</ion-select-option>
+        <ion-select-option value="4">Phototype IV</ion-select-option>
+        <ion-select-option value="5">Phototype V</ion-select-option>
+        <ion-select-option value="6">Phototype VI</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div>
+    <ion-item >
+      <ion-select placeholder="Your skin tone" interface="action-sheet">
+        <ion-select-option value="apples">Phototype I</ion-select-option>
+        <ion-select-option value="oranges">Phototype II</ion-select-option>
+        <ion-select-option value="bananas">Phototype III</ion-select-option>
+        <ion-select-option value="bananas">Phototype IV</ion-select-option>
+        <ion-select-option value="bananas">Phototype V</ion-select-option>
+        <ion-select-option value="bananas">Phototype VI</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>  
+  <div>
+    <ion-item >
+      <ion-select placeholder="Eye color" interface="action-sheet">
+        <ion-select-option value="apples">Phototype I</ion-select-option>
+        <ion-select-option value="oranges">Phototype II</ion-select-option>
+        <ion-select-option value="bananas">Phototype III</ion-select-option>
+        <ion-select-option value="bananas">Phototype IV</ion-select-option>
+        <ion-select-option value="bananas">Phototype V</ion-select-option>
+        <ion-select-option value="bananas">Phototype VI</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>  
+  <div>
+    <ion-item >
+      <ion-select placeholder="Hair coloring" interface="action-sheet">
+        <ion-select-option value="apples">Phototype I</ion-select-option>
+        <ion-select-option value="oranges">Phototype II</ion-select-option>
+        <ion-select-option value="bananas">Phototype III</ion-select-option>
+        <ion-select-option value="bananas">Phototype IV</ion-select-option>
+        <ion-select-option value="bananas">Phototype V</ion-select-option>
+        <ion-select-option value="bananas">Phototype VI</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>  
+  <div>
+    <ion-item >
+      <ion-select placeholder="Tan effect" interface="action-sheet">
+        <ion-select-option value="apples">Phototype I</ion-select-option>
+        <ion-select-option value="oranges">Phototype II</ion-select-option>
+        <ion-select-option value="bananas">Phototype III</ion-select-option>
+        <ion-select-option value="bananas">Phototype IV</ion-select-option>
+        <ion-select-option value="bananas">Phototype V</ion-select-option>
+        <ion-select-option value="bananas">Phototype VI</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>  
+  <div>
+    <ion-item >
+      <ion-select placeholder="Sun tolerance" interface="action-sheet">
+        <ion-select-option value="apples">Phototype I</ion-select-option>
+        <ion-select-option value="oranges">Phototype II</ion-select-option>
+        <ion-select-option value="bananas">Phototype III</ion-select-option>
+        <ion-select-option value="bananas">Phototype IV</ion-select-option>
+        <ion-select-option value="bananas">Phototype V</ion-select-option>
+        <ion-select-option value="bananas">Phototype VI</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>  
+
+
+<div class="center">
+  <ion-button (click)="sendRegister()" color="secondary" class="bt_create_account" >{{"DERMATOLOGICALPROFILEREGISTER"|translate}}</ion-button>
+</div>
+
+
 <ion-content>
 
+  <ion-tabs>
+
+    <ion-tab-bar color="primary" slot="bottom">
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="search"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="settings">
+        <ion-icon name="heart"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="account">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
 </ion-content>
+

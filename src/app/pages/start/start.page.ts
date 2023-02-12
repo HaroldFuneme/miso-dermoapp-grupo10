@@ -46,15 +46,6 @@ export class StartPage implements OnInit {
     }
   }
 
-  async signIn() {
-    try {
-      const user = await Auth.signIn('h.funeme@uniandes.edu.co', 'HaroldFuneme92%');
-      console.log(user);
-    } catch (error) {
-      console.log('error signing in', error);
-    }
-  }
-
   goCreateAccount(){
       this.router.navigateByUrl('/createaccount');
   }

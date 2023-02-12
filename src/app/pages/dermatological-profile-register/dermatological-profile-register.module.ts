@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DermatologicalProfileRegisterPageRoutingModule } from './dermatological-profile-register-routing.module';
 
 import { DermatologicalProfileRegisterPage } from './dermatological-profile-register.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DermatologicalProfileRegisterPageRoutingModule
+    DermatologicalProfileRegisterPageRoutingModule,
+    TranslateModule
   ],
   declarations: [DermatologicalProfileRegisterPage]
 })
