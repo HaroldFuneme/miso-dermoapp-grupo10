@@ -15,5 +15,60 @@
   "DERMATOLOGICALTITLE": "Registro de perfil Dermatologico",
   "DERMATOLOGICALPROFILEREGISTER": "Registro Perfil Dermatologico",
   "HOME": "Inicio - Casos Registrados",
-  "CASESREGISTER": "Registro de Caso"
+  "CASESREGISTER": "Registro de Caso",
+
+
+  "PHOTOTYPES": "Fototipos (I - VI)",
+  "PHOTOTYPESI": "Fototipos I",
+  "PHOTOTYPESII": "Fototipos II",
+  "PHOTOTYPESIII": "Fototipos III",
+  "PHOTOTYPESIV": "Fototipos IV",
+  "PHOTOTYPESV": "Fototipos V",
+  "PHOTOTYPESVI": "Fototipos VI",
+
+  "FIELDREQUIRED": "El campo es obligatorio",
+
+  "SKINTONE": "Tu tono de piel",
+  "SKINPALEWHITE": "Blanco palido",
+  "SKINWHITE": "Balnco",
+  "SKINDARKERWHITE": "Blanco más oscuro",
+  "SKINLIGHTBROWN": "Moreno claro",
+  "SKINBROWN": "Moreno",
+  "SKINDARKERBROWN": "Moreno oscuro o negro",
+
+  "EYECOLOR": "Color de Ojos",
+  "EYECHESTNUT": "Castaños",
+  "EYECOLORHONEY": "Color miel",
+  "EYECOLORGREEN": "Verdes",
+  "EYECOLORBLUE": "Azules",
+  "EYECOLORGRAY": "Grises",
+  "EYECOLORVARIOUS": "Varios colores",
+  "EYECOLORBLACK": "Negros",
+
+  "HAIRCOLOR": "Color de Pelo",
+  "HAIRCOLORBLACK": "Negro",
+  "HAIRCOLORCHESTNUT": "Castaños",
+  "HAIRCOLORBLOND": "Rubio",
+  "HAIRCOLORRED": "Rojo",
+  "HAIRCOLORGREY": "Gris",
+  "HAIRCOLORWHITE": "Blanco",
+
+  
+  "TANEFFECT": "Efecto bronceado",
+  "TANEFFECTALWAYS": "Siempre me quemo",
+  "TANEFFECTSOMETIME": "Algunas veces me quemo",
+  "TANEFFECTOCCASIONALLY": "Ocacionalmente me quemo",
+  "TANEFFECTLITTLE": "Bronceso facil poco me quemo",
+  "TANEFFECTRARELY": "Rara vez me quemo, broceo facil",
+  "TANEFFECTNEVER": "Nunca me quemo",
+
+
+  "SUNTOLERANCE": "Tolerancia al sol",
+  "SUNTOLERANCEVERYSENSIBLE": "Muy sensible",
+  "SUNTOLERANCESENSIBLE": "Medio Sensible",
+  "SUNTOLERANCESENSITIVE": "Sensible",
+  "SUNTOLERANCENORMAL": "Normal",
+  "SUNTOLERANCETOLERATES": "Tolera sol",
+  "SUNTOLERANCEVERYTOLERANT": "Muy tolerante",
+  "SUNTOLERANCEHIGH": "Tolerantcia alta"
 }

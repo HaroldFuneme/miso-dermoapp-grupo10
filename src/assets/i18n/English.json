@@ -15,5 +15,61 @@
   "DERMATOLOGICALTITLE": "Dermatological Profile Record",
   "DERMATOLOGICALPROFILEREGISTER": "Dermatological Profile Register",
   "HOME": "Home - Registered Cases",
-  "CASESREGISTER": "Cases Register"
+  "CASESREGISTER": "Cases Register",
+
+
+  "PHOTOTYPES": "Phototypes (I - VI)",
+  "PHOTOTYPESI": "Phototypes I",
+  "PHOTOTYPESII": "Phototypes II",
+  "PHOTOTYPESIII": "Phototypes III",
+  "PHOTOTYPESIV": "Phototypes IV",
+  "PHOTOTYPESV": "Phototypes V",
+  "PHOTOTYPESVI": "Phototypes VI",
+
+  "FIELDREQUIRED": "The field is required",
+
+  "SKINTONE": "Your skin tone",
+  "SKINPALEWHITE": "Pale White",
+  "SKINWHITE": "White",
+  "SKINDARKERWHITE": "Darker White",
+  "SKINLIGHTBROWN": "Light Brown",
+  "SKINBROWN": "Brown",
+  "SKINDARKERBROWN": "Darker Brown or Black",
+
+  "EYECOLOR": "Eye color",
+  "EYECHESTNUT": "Chestnut",
+  "EYECOLORHONEY": "Honey color",
+  "EYECOLORGREEN": "Green",
+  "EYECOLORBLUE": "Blue",
+  "EYECOLORGRAY": "Gray",
+  "EYECOLORVARIOUS": "Various colors",
+  "EYECOLORBLACK": "Black",
+
+  "HAIRCOLOR": "Hair coloring",
+  "HAIRCOLORBLACK": "Black",
+  "HAIRCOLORCHESTNUT": "Chestnut",
+  "HAIRCOLORBLOND": "Blond",
+  "HAIRCOLORRED": "Red or Orange Red",
+  "HAIRCOLORGREY": "Grey",
+  "HAIRCOLORWHITE": "White",
+
+  
+  "TANEFFECT": "Tan Effect",
+  "TANEFFECTALWAYS": "I Always Burn",
+  "TANEFFECTSOMETIME": "Sometimes I Burn",
+  "TANEFFECTOCCASIONALLY": "Occasionally I Burn",
+  "TANEFFECTLITTLE": "Tan Easy Little I Burn",
+  "TANEFFECTRARELY": "I Rarely burn easy Tan",
+  "TANEFFECTNEVER": "I never burn",
+
+
+  "SUNTOLERANCE": "Sun tolerance",
+  "SUNTOLERANCEVERYSENSIBLE": "Very Sensible",
+  "SUNTOLERANCESENSIBLE": "Sensible",
+  "SUNTOLERANCESENSITIVE": "Sensitive",
+  "SUNTOLERANCENORMAL": "Normal",
+  "SUNTOLERANCETOLERATES": "Tolerates Sun",
+  "SUNTOLERANCEVERYTOLERANT": "Very Tolerant",
+  "SUNTOLERANCEHIGH": "High Tolerance"
+
 }

@@ -115,7 +115,7 @@ export class CreateaccountPage implements OnInit {
     });
 
     await alert.present();
-    this.goDermatologicalProfile();
+    this.goBack();
 
   }
 

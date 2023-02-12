@@ -30,7 +30,7 @@ export class DermatologicalProfileRegisterPage implements OnInit {
   sendRegister(){
     console.log('Send register');
     console.log(this.dermatologicalForm.value);
-      //this.goHome();
+    this.goHome();
   }
 
   goBack() {
