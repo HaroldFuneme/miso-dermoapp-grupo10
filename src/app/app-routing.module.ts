@@ -19,6 +19,14 @@ const routes: Routes = [
     path: 'createaccount',
     loadChildren: () => import('./pages/createaccount/createaccount.module').then( m => m.CreateaccountPageModule)
   },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'dermatological-profile-register',
+    loadChildren: () => import('./pages/dermatological-profile-register/dermatological-profile-register.module').then( m => m.DermatologicalProfileRegisterPageModule)
+  },
 
 ];
 
