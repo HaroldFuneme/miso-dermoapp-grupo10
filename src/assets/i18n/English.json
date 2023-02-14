@@ -17,5 +17,41 @@
     "subHeader": "Important message",
     "message": "In order to use our App and/or receive our Services, you must be at least 18 years of age, or the legal age of majority in your jurisdiction, and possess the legal authority, right, and liberty to enter into these Terms as a binding agreement. . You are not allowed to use this application and / or receive services if doing so is prohibited in your country or under any law or regulation applicable to you.",
     "buttons": ["Accept"]
-  }
+  },
+  "CASE_RECODRD_TITLE": "Dermatological Case Record",
+  "CASE_NAME": "Case Name",
+  "INJURY_TYPE": "Type of Injury",
+
+  "INJURY_SHAPE_RING": "Ring",
+  "INJURY_TYPE_BLISTER": "Blister",
+  "INJURY_TYPE_MACULE": "Macule",
+  "INJURY_TYPE_PAPULE": "Papule",
+  "INJURY_TYPE_PATCH": "Patch",
+  "INJURY_TYPE_PLAQUE": "Plaque",
+  "INJURY_TYPE_NODULE": "Nodule",
+  "INJURY_TYPE_ULCER": "Ulcer",
+  "INJURY_TYPE_VESICLE": "Vesicle",
+  "INJURY_SHAPE": "Shape",
+
+  "INJURY_SHAPE_DOME": "Dome",
+  "INJURY_SHAPE_OVAL": "Oval",
+  "INJURY_SHAPE_ROUND": "Round",
+  "INJURY_SHAPE_INDEFINITE": "Indefinite",
+  "INJURY_SHAPE_COILED": "Coiled",
+  "NUMBER_LESSIONS": "Number Of Lesions",
+
+  "NUMBER_LESSIONS_SOLITARY": "Solitary",
+  "NUMBER_LESSIONS_MULTIPLE": "Multiple",
+  "NUMBER_LESSIONS_RECURRENT": "Recurrent",
+
+  "NUMBER_LESSIONS_DISSEMINATED": "Disseminated",
+  "INJURY_DISTRIBUTION": "Distributions",
+  "INJURY_DISTRIBUTION_ASYMMETRIC": "Asymmetric",
+  "INJURY_DISTRIBUTION_CONFLUENT": "Confluent",
+  "INJURY_DISTRIBUTION_SYMMETRIC": "Symmetric",
+  "INJURY_DISTRIBUTION_SPREAD": "Spread",
+
+  "INJURY_COLOR": "Color",
+  "INJURY_IMAGE": "Image upload",
+  "CASE_REGISTER_BUTTON": "Register case"
 }

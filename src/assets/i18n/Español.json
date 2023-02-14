@@ -11,5 +11,41 @@
   "USERREGISTER": "Registro de Usuario",
   "CITY": "Ciudad",
   "DATEBIRTH": "Fecha de nacimiento",
-  "AGREETERM": "¿Está de acuerdo con los términos y condiciones?"
+  "AGREETERM": "¿Está de acuerdo con los términos y condiciones?",
+  "CASE_RECODRD_TITLE": "Registro de Caso Dermatológico",
+  "CASE_NAME": "Nombre del caso",
+
+  "INJURY_TYPE": "Tipo de Lesión",
+  "INJURY_TYPE_MACULE": "Mácula",
+  "INJURY_TYPE_PAPULE": "Pápula",
+  "INJURY_TYPE_PATCH": "Parche",
+  "INJURY_TYPE_PLAQUE": "Placa",
+  "INJURY_TYPE_NODULE": "Nódulo",
+  "INJURY_TYPE_BLISTER": "Ampolla",
+  "INJURY_TYPE_ULCER": "Úlcera",
+
+  "INJURY_TYPE_VESICLE": "Vesícula",
+  "INJURY_SHAPE": "Forma",
+  "INJURY_SHAPE_RING": "Anillo",
+  "INJURY_SHAPE_DOME": "Domo",
+  "INJURY_SHAPE_OVAL": "Ovalada",
+  "INJURY_SHAPE_ROUND": "Redonda",
+  "INJURY_SHAPE_INDEFINITE": "Indefinida",
+  "INJURY_SHAPE_COILED": "Enrollada",
+
+  "NUMBER_LESSIONS": "Número de lesiones",
+  "NUMBER_LESSIONS_SOLITARY": "Solitaria",
+  "NUMBER_LESSIONS_MULTIPLE": "Múltiple",
+  "NUMBER_LESSIONS_RECURRENT": "Recurrente ",
+  "NUMBER_LESSIONS_DISSEMINATED": "Diseminada",
+
+  "INJURY_DISTRIBUTION": "Distribución",
+  "INJURY_DISTRIBUTION_ASYMMETRIC": "Asimétrica",
+  "INJURY_DISTRIBUTION_CONFLUENT": "Confluente",
+  "INJURY_DISTRIBUTION_SYMMETRIC": "Simétrica",
+  "INJURY_DISTRIBUTION_SPREAD": "Esparcida",
+
+  "INJURY_COLOR": "Color",
+  "INJURY_IMAGE": "Subir imagen",
+  "CASE_REGISTER_BUTTON": "Registrar Caso"
 }
