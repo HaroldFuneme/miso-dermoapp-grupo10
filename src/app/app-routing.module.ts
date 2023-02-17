@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dermatological-profile-register/dermatological-profile-register.module').then( m => m.DermatologicalProfileRegisterPageModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'case-register',
+    loadChildren: () => import('./pages/case-register/case-register.module').then( m => m.CaseRegisterPageModule)
+  },
 
 ];
 
