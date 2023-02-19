@@ -106,6 +106,10 @@
   "INJURY_DISTRIBUTION_SPREAD": "Spread",
 
   "INJURY_COLOR": "Color",
+  "INJURY_COLOR_RED": "Red",
+  "INJURY_COLOR_GREEN": "Green",
+  "INJURY_COLOR_BLUE": "Blue",
+  "INJURY_COLOR_BLACK": "Black",
   "INJURY_IMAGE": "Image upload",
   "CASE_REGISTER_BUTTON": "Register case"
 

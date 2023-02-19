@@ -37,17 +37,17 @@
   </ion-card>
   
 
+
+  
 </ion-content>
 
-<ion-footer class="ion-no-border">
 
-  <div class="center">
-    <ion-button  (click)="caseRegister()" color="secondary"
-      class="bt_cases_register">{{"CASESREGISTER"|translate}}</ion-button>
-  </div>
-
+<ion-content>
   <ion-tabs>
-
+    
+    <div class="center">
+      <ion-button  (click)="goCaseRegister()" color="secondary" class="bt_cases_register">{{"CASESREGISTER"|translate}}</ion-button>
+    </div>
     <ion-tab-bar color="primary" slot="bottom">
 
       <ion-tab-button tab="contact">
@@ -71,4 +71,4 @@
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-</ion-footer>
+</ion-content>

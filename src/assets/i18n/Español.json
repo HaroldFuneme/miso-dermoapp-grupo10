@@ -105,6 +105,10 @@
   "INJURY_DISTRIBUTION_SPREAD": "Esparcida",
 
   "INJURY_COLOR": "Color",
+  "INJURY_COLOR_RED": "Rojo",
+  "INJURY_COLOR_GREEN": "Verde",
+  "INJURY_COLOR_BLUE": "Azul",
+  "INJURY_COLOR_BLACK": "Negro",
   "INJURY_IMAGE": "Subir imagen",
   "CASE_REGISTER_BUTTON": "Registrar Caso"
 }

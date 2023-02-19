@@ -7,10 +7,14 @@
   &__item {
     padding: 10px;
     --background: white;
+  }
 
-    &-icon {
-      background-color: blue;
-    }
+  &__icon{
+    width:25%;
+    height:100%;
+    position: relative;
+    left: 1rem;
+    background-color:  var(--ion-color-secondary);
   }
 
   &__label {
@@ -43,7 +47,11 @@
   &__button {
     display: block;
     margin: auto;
-    margin-top: 40px;
+    margin-bottom: 2rem;
     max-width: 300px;
   }
+
+ 
+
+ 
 }

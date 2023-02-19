@@ -15,8 +15,9 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 
-  caseRegister(){
-    console.log('go to create register');
+  goCaseRegister(){
+    console.log('got to register');
+    this.router.navigateByUrl('/case-register');
   }
 
   goBack() {

@@ -12,68 +12,98 @@
   </ion-toolbar>
 </ion-header>
 
+
+<form [formGroup]="caseForm" (ngSubmit)="onSubmit()">
+
+  <ion-list [inset]="true" class="case-register__list">
+
+    <ion-item fill="outline" class="case-register__item">
+      <ion-label class="case-register__label">{{'CASE_NAME'|translate}}</ion-label>
+      <ion-input class="case-register__input" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item fill="outline" class="case-register__item">
+      <ion-label class="case-register__label">{{injuryTypes.name | translate}}</ion-label>
+      <ion-select class="case-register__select" formControlName="injuryType">
+        <ion-select-option [value]="option|translate" *ngFor="let option of injuryTypes.items">{{option
+          |translate}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item fill="outline" class="case-register__item">
+      <ion-label class="case-register__label">{{injuryShapes.name| translate}}</ion-label>
+      <ion-select class="case-register__select" formControlName="injuryShape">
+        <ion-select-option [value]="option|translate" *ngFor="let option of injuryShapes.items">{{option
+          |translate}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item fill="outline" class="case-register__item">
+      <ion-label class="case-register__label">{{lessionsNumber.name| translate}}</ion-label>
+      <ion-select class="case-register__select" formControlName="lessionsNumber">
+        <ion-select-option [value]="option|translate" *ngFor="let option of lessionsNumber.items">{{option
+          |translate}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item fill="outline" class="case-register__item">
+      <ion-label class="case-register__label">{{injuryDistributions.name| translate}}</ion-label>
+      <ion-select class="case-register__select" formControlName="injuryDistribution">
+        <ion-select-option [value]="option|translate" *ngFor="let option of injuryDistributions.items">
+          {{option|translate}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item fill="outline" class="case-register__item">
+      <ion-label class="case-register__label">{{'INJURY_COLOR' |translate}}</ion-label>
+      <ion-select class="case-register__select" formControlName="injuryColor">
+        <ion-select-option [value]="option|translate" *ngFor="let option of injuryColor.items">
+          {{option|translate}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item fill="outline" class="case-register__item">
+      <ion-label class="case-register__label">{{'INJURY_IMAGE'|translate}}</ion-label>
+      <ion-icon type="file" (click)="uploadImage()" class="case-register__icon" name="cloud-upload" slot="end" color="secondary-contrast" size="large"></ion-icon>
+    </ion-item>
+
+    <div></div>
+  </ion-list>
+
+</form>
+
+
 <ion-content>
 
-  <form [formGroup]="caseForm" (ngSubmit)="onSubmit()">
-
-    <ion-list [inset]="true" class="case-register__list">
-
-      <ion-item fill="outline" class="case-register__item">
-        <ion-label class="case-register__label">{{'CASE_NAME'|translate}}</ion-label>
-        <ion-input class="case-register__input" formControlName="name"></ion-input>
-      </ion-item>
-
-      <ion-item fill="outline" class="case-register__item">
-        <ion-label class="case-register__label">{{injuryTypes.name | translate}}</ion-label>
-        <ion-select class="case-register__select" formControlName="injuryType">
-          <ion-select-option [value]="option|translate" *ngFor="let option of injuryTypes.items">{{option
-            |translate}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item fill="outline" class="case-register__item">
-        <ion-label class="case-register__label">{{injuryShapes.name| translate}}</ion-label>
-        <ion-select class="case-register__select" formControlName="injuryShape">
-          <ion-select-option [value]="option|translate" *ngFor="let option of injuryShapes.items">{{option
-            |translate}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item fill="outline" class="case-register__item">
-        <ion-label class="case-register__label">{{lessionsNumber.name| translate}}</ion-label>
-        <ion-select class="case-register__select" formControlName="lessionsNumber">
-          <ion-select-option [value]="option|translate" *ngFor="let option of lessionsNumber.items">{{option
-            |translate}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item fill="outline" class="case-register__item">
-        <ion-label class="case-register__label">{{injuryDistributions.name| translate}}</ion-label>
-        <ion-select class="case-register__select" formControlName="injuryDistribution">
-          <ion-select-option [value]="option|translate" *ngFor="let option of injuryDistributions.items">{{option
-            |translate}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item fill="outline" class="case-register__item">
-        <ion-label class="case-register__label">{{'INJURY_COLOR' |translate}}</ion-label>
-        <ion-input class="case-register__input case-register__input-color" type="color"
-          formControlName="injuryColor"></ion-input>
-      </ion-item>
-
-      <ion-item fill="outline" class="case-register__item">
-        <ion-label class="case-register__label">{{'INJURY_IMAGE'|translate}}</ion-label>
-        <ion-input class="case-register__input"></ion-input>
-        <ion-icon name="cloud-upload" slot="end" color="tertiary" size="large"></ion-icon>
-      </ion-item>
-
+  <ion-tabs>
+    <div class="center">
       <ion-button color="secondary" shape="round" [disabled]="!caseForm.valid" type="submit"
         class="case-register__button">{{"CASE_REGISTER_BUTTON"|translate}}</ion-button>
+    </div>
+    <ion-tab-bar color="primary" slot="bottom">
 
-    </ion-list>
+      <ion-tab-button tab="contact">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
 
+      <ion-tab-button tab="contact">
+        <ion-icon name="search"></ion-icon>
+      </ion-tab-button>
 
+      <ion-tab-button tab="contact">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-tab-button>
 
-  </form>
+      <ion-tab-button tab="settings">
+        <ion-icon name="heart"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="account">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 
 </ion-content>

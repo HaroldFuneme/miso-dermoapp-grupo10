@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+//import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+// INTAL ionic cordova plugin add cordova-plugin-camera
+// or
+//npm install @ionic-native/camera
 @Component({
   selector: 'app-case-register',
   templateUrl: './case-register.page.html',
   styleUrls: ['./case-register.page.scss'],
 })
 export class CaseRegisterPage implements OnInit {
+  public pic: any;
+
   readonly injuryTypes = {
     name: 'INJURY_TYPE',
     items: [
@@ -50,6 +55,15 @@ export class CaseRegisterPage implements OnInit {
       'INJURY_DISTRIBUTION_SPREAD',
     ],
   };
+  readonly injuryColor = {
+    name: 'INJURY_COLOR',
+    items: [
+      'INJURY_COLOR_RED',
+      'INJURY_COLOR_GREEN',
+      'INJURY_COLOR_BLUE',
+      'INJURY_COLOR_BLACK',
+    ],
+  };
 
   caseForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -60,15 +74,22 @@ export class CaseRegisterPage implements OnInit {
     injuryColor: new FormControl('', [Validators.required]),
   });
 
-  constructor() {}
+  constructor(
+    private router: Router,
+  ) {}
 
   ngOnInit() {}
 
   goHome() {
-    //return to case list
+    this.router.navigateByUrl('/home');
   }
 
   onSubmit() {
     console.log(this.caseForm.value);
   }
+
+  uploadImage(){
+    console.log('uploading ...');
+  }
+
 }
