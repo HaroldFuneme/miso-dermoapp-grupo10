@@ -1,17 +1,20 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-//import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-// INTAL ionic cordova plugin add cordova-plugin-camera
-// or
-//npm install @ionic-native/camera
+import { Camera, CameraResultType } from '@capacitor/camera';
+import { RegisterCaseService } from '../../services/registerCase/register-case.service';
+import { UserSessionService } from '../../services/userSession/user-session.service';
+
 @Component({
   selector: 'app-case-register',
   templateUrl: './case-register.page.html',
   styleUrls: ['./case-register.page.scss'],
 })
 export class CaseRegisterPage implements OnInit {
-  public pic: any;
+  public imageSelected: any;
+
+
 
   readonly injuryTypes = {
     name: 'INJURY_TYPE',
@@ -66,16 +69,19 @@ export class CaseRegisterPage implements OnInit {
   };
 
   caseForm = new FormGroup({
+    case_id: new FormControl('TestStatic'),
     name: new FormControl('', Validators.required),
-    injuryType: new FormControl('', [Validators.required]),
-    injuryShape: new FormControl('', [Validators.required]),
-    lessionsNumber: new FormControl('', [Validators.required]),
-    injuryDistribution: new FormControl('', [Validators.required]),
-    injuryColor: new FormControl('', [Validators.required]),
+    injury_type: new FormControl('', [Validators.required]),
+    shape: new FormControl('', [Validators.required]),
+    number_of_lessions: new FormControl('', [Validators.required]),
+    distributions: new FormControl('', [Validators.required]),
+    color: new FormControl('', [Validators.required]),
   });
 
   constructor(
     private router: Router,
+    private registerCaseService: RegisterCaseService,
+    private userSessionService: UserSessionService,
   ) {}
 
   ngOnInit() {}
@@ -84,12 +90,31 @@ export class CaseRegisterPage implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
-  onSubmit() {
+  sendRegisterProfile(){
     console.log(this.caseForm.value);
+    console.log(this.imageSelected);
+    this.registerCaseService.sendRegisterCase(this.userSessionService.getSession().username, this.imageSelected, this.caseForm.value)
+    .subscribe({
+      complete: ( ) => {  console.log('Completed...'); },
+      error: (e) => { console.log(e); },
+      next: (res) => {
+        console.log('Sended...', res);
+        this.goHome();
+      }
+    });
+
   }
 
-  uploadImage(){
+  async uploadImage(){
     console.log('uploading ...');
+    this.imageSelected = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Base64
+    })
+    .catch(e => {
+      console.log('Error uploading photo ...', e);
+    });
   }
 
 }

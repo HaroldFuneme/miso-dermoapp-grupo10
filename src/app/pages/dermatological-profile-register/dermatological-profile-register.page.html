@@ -21,7 +21,7 @@
 
   <div>
     <ion-item lines="full">
-      <ion-select formControlName="phototypes" required
+      <ion-select formControlName="photo_type" required
         placeholder="{{'PHOTOTYPES' | translate}}" interface="action-sheet">
         <ion-select-option value="1">{{'PHOTOTYPESI' | translate}}</ion-select-option>
         <ion-select-option value="2">{{'PHOTOTYPESII' | translate}}</ion-select-option>
@@ -34,13 +34,13 @@
   </div>
   <div class="center">
     <ion-label color="danger"
-      *ngIf="!dermatologicalForm.controls.phototypes.valid && dermatologicalForm.controls.phototypes.touched">*
+      *ngIf="!dermatologicalForm.controls.photo_type.valid && dermatologicalForm.controls.photo_type.touched">*
       {{'FIELDREQUIRED' | translate}} </ion-label>
   </div>
 
   <div>
     <ion-item>
-      <ion-select formControlName="skintone" required placeholder="{{'SKINTONE' | translate}}" interface="action-sheet">
+      <ion-select formControlName="tone_skin" required placeholder="{{'SKINTONE' | translate}}" interface="action-sheet">
         <ion-select-option value="Pale White">{{'SKINPALEWHITE' | translate}}</ion-select-option>
         <ion-select-option value="White">{{'SKINWHITE' | translate}}</ion-select-option>
         <ion-select-option value="Darker White">{{'SKINDARKERWHITE' | translate}}</ion-select-option>
@@ -52,13 +52,13 @@
   </div>
   <div class="center">
     <ion-label color="danger"
-      *ngIf="!dermatologicalForm.controls.skintone.valid && dermatologicalForm.controls.skintone.touched">*
+      *ngIf="!dermatologicalForm.controls.tone_skin.valid && dermatologicalForm.controls.tone_skin.touched">*
       {{'FIELDREQUIRED' | translate}} </ion-label>
   </div>
 
   <div>
     <ion-item>
-      <ion-select formControlName="eyecolor" required placeholder="{{'EYECOLOR' | translate}}" interface="action-sheet">
+      <ion-select formControlName="eye_color" required placeholder="{{'EYECOLOR' | translate}}" interface="action-sheet">
         <ion-select-option value="chestnut">{{'EYECHESTNUT' | translate}}</ion-select-option>
         <ion-select-option value="honey">{{'EYECOLORHONEY' | translate}} </ion-select-option>
         <ion-select-option value="green">{{'EYECOLORGREEN' | translate}}</ion-select-option>
@@ -71,13 +71,13 @@
   </div>
   <div class="center">
     <ion-label color="danger"
-      *ngIf="!dermatologicalForm.controls.eyecolor.valid && dermatologicalForm.controls.eyecolor.touched">*
+      *ngIf="!dermatologicalForm.controls.eye_color.valid && dermatologicalForm.controls.eye_color.touched">*
       {{'FIELDREQUIRED' | translate}} </ion-label>
   </div>
 
   <div>
     <ion-item>
-      <ion-select formControlName="haircoloring" required placeholder="{{'HAIRCOLOR' | translate}}" interface="action-sheet">
+      <ion-select formControlName="hair_coloring" required placeholder="{{'HAIRCOLOR' | translate}}" interface="action-sheet">
         <ion-select-option value="black">Black</ion-select-option>
         <ion-select-option value="chestnut">Chestnut</ion-select-option>
         <ion-select-option value="blond">Blond</ion-select-option>
@@ -89,13 +89,13 @@
   </div>
   <div class="center">
     <ion-label color="danger"
-      *ngIf="!dermatologicalForm.controls.haircoloring.valid && dermatologicalForm.controls.haircoloring.touched">*
+      *ngIf="!dermatologicalForm.controls.hair_coloring.valid && dermatologicalForm.controls.hair_coloring.touched">*
       {{'FIELDREQUIRED' | translate}} </ion-label>
   </div>
 
   <div>
     <ion-item>
-      <ion-select formControlName="taneffect" required placeholder="{{'TANEFFECT' | translate}}" interface="action-sheet">
+      <ion-select formControlName="tan_effect" required placeholder="{{'TANEFFECT' | translate}}" interface="action-sheet">
         <ion-select-option value="always">{{'TANEFFECTALWAYS' | translate}}</ion-select-option>
         <ion-select-option value="sometimes">{{'TANEFFECTSOMETIME' | translate}}</ion-select-option>
         <ion-select-option value="occasionally">{{'TANEFFECTOCCASIONALLY' | translate}}</ion-select-option>
@@ -107,13 +107,13 @@
   </div>
   <div class="center">
     <ion-label color="danger"
-      *ngIf="!dermatologicalForm.controls.taneffect.valid && dermatologicalForm.controls.taneffect.touched">*
+      *ngIf="!dermatologicalForm.controls.tan_effect.valid && dermatologicalForm.controls.tan_effect.touched">*
       {{'FIELDREQUIRED' | translate}} </ion-label>
   </div>
 
   <div>
     <ion-item>
-      <ion-select formControlName="tolerance" required placeholder="{{'SUNTOLERANCE' | translate}}" interface="action-sheet">
+      <ion-select formControlName="sun_tolerance" required placeholder="{{'SUNTOLERANCE' | translate}}" interface="action-sheet">
         <ion-select-option value="very sensible">{{'SUNTOLERANCEVERYSENSIBLE' | translate}}</ion-select-option>
         <ion-select-option value="sensible">{{'SUNTOLERANCESENSIBLE' | translate}}</ion-select-option>
         <ion-select-option value="sensitive">{{'SUNTOLERANCESENSITIVE' | translate}}</ion-select-option>
@@ -126,7 +126,7 @@
   </div>
   <div class="center">
     <ion-label color="danger"
-      *ngIf="!dermatologicalForm.controls.tolerance.valid && dermatologicalForm.controls.tolerance.touched">*
+      *ngIf="!dermatologicalForm.controls.sun_tolerance.valid && dermatologicalForm.controls.sun_tolerance.touched">*
       {{'FIELDREQUIRED' | translate}} </ion-label>
   </div>
 

@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<form [formGroup]="caseForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="caseForm" (ngSubmit)="sendRegisterProfile()">
 
   <ion-list [inset]="true" class="case-register__list">
 
@@ -24,7 +24,7 @@
 
     <ion-item fill="outline" class="case-register__item">
       <ion-label class="case-register__label">{{injuryTypes.name | translate}}</ion-label>
-      <ion-select class="case-register__select" formControlName="injuryType">
+      <ion-select class="case-register__select" formControlName="injury_type" interface="action-sheet">
         <ion-select-option [value]="option|translate" *ngFor="let option of injuryTypes.items">{{option
           |translate}}</ion-select-option>
       </ion-select>
@@ -32,7 +32,7 @@
 
     <ion-item fill="outline" class="case-register__item">
       <ion-label class="case-register__label">{{injuryShapes.name| translate}}</ion-label>
-      <ion-select class="case-register__select" formControlName="injuryShape">
+      <ion-select class="case-register__select" formControlName="shape" interface="action-sheet">
         <ion-select-option [value]="option|translate" *ngFor="let option of injuryShapes.items">{{option
           |translate}}</ion-select-option>
       </ion-select>
@@ -40,7 +40,7 @@
 
     <ion-item fill="outline" class="case-register__item">
       <ion-label class="case-register__label">{{lessionsNumber.name| translate}}</ion-label>
-      <ion-select class="case-register__select" formControlName="lessionsNumber">
+      <ion-select class="case-register__select" formControlName="number_of_lessions" interface="action-sheet">
         <ion-select-option [value]="option|translate" *ngFor="let option of lessionsNumber.items">{{option
           |translate}}</ion-select-option>
       </ion-select>
@@ -48,7 +48,7 @@
 
     <ion-item fill="outline" class="case-register__item">
       <ion-label class="case-register__label">{{injuryDistributions.name| translate}}</ion-label>
-      <ion-select class="case-register__select" formControlName="injuryDistribution">
+      <ion-select class="case-register__select" formControlName="distributions" interface="action-sheet">
         <ion-select-option [value]="option|translate" *ngFor="let option of injuryDistributions.items">
           {{option|translate}}
         </ion-select-option>
@@ -57,7 +57,7 @@
 
     <ion-item fill="outline" class="case-register__item">
       <ion-label class="case-register__label">{{'INJURY_COLOR' |translate}}</ion-label>
-      <ion-select class="case-register__select" formControlName="injuryColor">
+      <ion-select class="case-register__select" formControlName="color" interface="action-sheet">
         <ion-select-option [value]="option|translate" *ngFor="let option of injuryColor.items">
           {{option|translate}}
         </ion-select-option>
@@ -66,6 +66,7 @@
 
     <ion-item fill="outline" class="case-register__item">
       <ion-label class="case-register__label">{{'INJURY_IMAGE'|translate}}</ion-label>
+      <ion-input class="case-register__input" formControlName="name"></ion-input>
       <ion-icon type="file" (click)="uploadImage()" class="case-register__icon" name="cloud-upload" slot="end" color="secondary-contrast" size="large"></ion-icon>
     </ion-item>
 
@@ -79,7 +80,7 @@
 
   <ion-tabs>
     <div class="center">
-      <ion-button color="secondary" shape="round" [disabled]="!caseForm.valid" type="submit"
+      <ion-button (click)="sendRegisterProfile()" color="secondary" shape="round" [disabled]="!caseForm.valid" type="submit"
         class="case-register__button">{{"CASE_REGISTER_BUTTON"|translate}}</ion-button>
     </div>
     <ion-tab-bar color="primary" slot="bottom">

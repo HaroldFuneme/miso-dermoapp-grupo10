@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth } from 'aws-amplify';
 import { AlertController } from '@ionic/angular';
+import { User } from '../../models/User';
+import { UserSessionService } from '../../services/userSession/user-session.service';
 
 @Component({
   selector: 'app-signin',
@@ -15,7 +17,8 @@ export class SigninPage implements OnInit {
 
   constructor(
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private userSessionService: UserSessionService
     ) { }
 
   ngOnInit() {
@@ -34,20 +37,14 @@ export class SigninPage implements OnInit {
     try {
       const user = await Auth.signIn(this.email, this.password);
       console.log(JSON.stringify(user));
-      // Obtener el token de acceso
+      this.userSessionService.setSession(user);
+
       const session = await Auth.currentSession();
       const accessToken = session.getAccessToken().getJwtToken();
 
       console.log(JSON.stringify(session));
       console.log(JSON.stringify(accessToken));
       this.goDermatologicalProfile();
-      // Hacer una petición HTTP con el token de acceso
-      // const response = await fetch('https://api.miaplicacion.com/miruta', {
-      // headers: {
-      //     // eslint-disable-next-line quote-props, @typescript-eslint/naming-convention
-      //     'Authorization': `Bearer ${accessToken}`
-      // }
-      //});
     } catch (error) {
       const alert = await this.alertController.create({
         header: 'Alert',
