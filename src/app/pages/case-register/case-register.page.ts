@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { RegisterCaseService } from '../../services/registerCase/register-case.service';
 import { UserSessionService } from '../../services/userSession/user-session.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-case-register',
@@ -69,7 +70,7 @@ export class CaseRegisterPage implements OnInit {
   };
 
   caseForm = new FormGroup({
-    case_id: new FormControl('TestStatic'),
+    case_id: new FormControl(uuidv4()),
     name: new FormControl('', Validators.required),
     injury_type: new FormControl('', [Validators.required]),
     shape: new FormControl('', [Validators.required]),

@@ -16,6 +16,8 @@ import {
 } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 import { MissingTranslationHandlerParams } from '@ngx-translate/core';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('DermatologicalProfileRegisterPage', () => {
   let component: DermatologicalProfileRegisterPage;
@@ -34,7 +36,7 @@ describe('DermatologicalProfileRegisterPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ DermatologicalProfileRegisterPage ],
-      imports: [IonicModule.forRoot(), TranslateModule],
+      imports: [IonicModule.forRoot(), TranslateModule, HttpClientModule, HttpClientTestingModule],
       providers: [
         { provide: USE_DEFAULT_LANG, useValue: undefined },
         { provide: USE_STORE, useValue: undefined },
