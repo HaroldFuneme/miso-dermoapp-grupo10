@@ -7,9 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { StartPageRoutingModule } from './start-routing.module';
 
 import { StartPage } from './start.page';
-import { TranslateModule, TranslateService, TranslateStore, TranslateLoader } from '@ngx-translate/core';
-import { HttpLoaderFactory } from '../../app.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -17,10 +15,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule,
     IonicModule,
     StartPageRoutingModule,
-    TranslateModule
+    TranslateModule,
   ],
   exports: [],
   declarations: [StartPage],
-  providers: []
+  providers: [],
 })
 export class StartPageModule {}

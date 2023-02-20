@@ -5,14 +5,14 @@
 
   <div style="margin-top: 3rem;">
     <label>{{"EMAIL"| translate}}</label>
-    <input type="text" placeholder="{{'ENTEREMAIL'|translate}}">
+    <input type="text" placeholder="{{'ENTEREMAIL'|translate}}" [(ngModel)]="email">
     <label>{{"PASSWORD"| translate}}</label>
-    <input type="text" placeholder="{{'ENTERPASS' | translate}}">
+    <input type="password" placeholder="{{'ENTERPASS' | translate}}" [(ngModel)]="password">
   </div>
 
   <div class="center">
     <div>
-      <ion-button class="bt_login" >{{'LOGIN'| translate}}</ion-button>
+      <ion-button class="bt_login" (click)="login()" >{{'LOGIN'| translate}}</ion-button>
     </div>
   </div>
 

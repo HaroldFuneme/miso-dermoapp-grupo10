@@ -12,7 +12,7 @@ phases:
       - apt install unzip -y
       - apt install curl -y
       # Headless Chrome-browser
-      - apt-get install -y fonts-liberation libasound2 libnspr4 libnss3 libx11-xcb1 xdg-utils libxss1 libappindicator1 libindicator7 libgbm1 libu2f-udev
+      - apt-get install -y fonts-liberation libasound2 libnspr4 libnss3 libx11-xcb1 xdg-utils libxss1 libappindicator1 libindicator7 libgbm1 libu2f-udev libvulkan1
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - dpkg -i google-chrome*.deb
       - npm install

@@ -1,0 +1,169 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+
+    <ion-title>{{"DERMATOLOGICALTITLE"|translate}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button><ion-icon name="ellipsis-vertical"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<div>
+  <ion-img class="logo" src="../../../assets/img/fototipo-fitzpatrick.png" alt="DermoApp logo"></ion-img>
+</div>
+
+<form [formGroup]="dermatologicalForm" (ngSubmit)="sendRegister()">
+
+  <div>
+    <ion-item lines="full">
+      <ion-select formControlName="photo_type" required
+        placeholder="{{'PHOTOTYPES' | translate}}" interface="action-sheet">
+        <ion-select-option value="1">{{'PHOTOTYPESI' | translate}}</ion-select-option>
+        <ion-select-option value="2">{{'PHOTOTYPESII' | translate}}</ion-select-option>
+        <ion-select-option value="3">{{'PHOTOTYPESIII' | translate}}</ion-select-option>
+        <ion-select-option value="4">{{'PHOTOTYPESIV' | translate}}</ion-select-option>
+        <ion-select-option value="5">{{'PHOTOTYPESV' | translate}}</ion-select-option>
+        <ion-select-option value="6">{{'PHOTOTYPESVI' | translate}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.photo_type.valid && dermatologicalForm.controls.photo_type.touched">*
+      {{'FIELDREQUIRED' | translate}} </ion-label>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-select formControlName="tone_skin" required placeholder="{{'SKINTONE' | translate}}" interface="action-sheet">
+        <ion-select-option value="Pale White">{{'SKINPALEWHITE' | translate}}</ion-select-option>
+        <ion-select-option value="White">{{'SKINWHITE' | translate}}</ion-select-option>
+        <ion-select-option value="Darker White">{{'SKINDARKERWHITE' | translate}}</ion-select-option>
+        <ion-select-option value="Light Brown">{{'SKINLIGHTBROWN' | translate}}</ion-select-option>
+        <ion-select-option value="Brown">{{'SKINBROWN' | translate}}</ion-select-option>
+        <ion-select-option value="Darker Brown or Black">{{'SKINDARKERBROWN' | translate}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.tone_skin.valid && dermatologicalForm.controls.tone_skin.touched">*
+      {{'FIELDREQUIRED' | translate}} </ion-label>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-select formControlName="eye_color" required placeholder="{{'EYECOLOR' | translate}}" interface="action-sheet">
+        <ion-select-option value="chestnut">{{'EYECHESTNUT' | translate}}</ion-select-option>
+        <ion-select-option value="honey">{{'EYECOLORHONEY' | translate}} </ion-select-option>
+        <ion-select-option value="green">{{'EYECOLORGREEN' | translate}}</ion-select-option>
+        <ion-select-option value="blue">{{'EYECOLORBLUE' | translate}}</ion-select-option>
+        <ion-select-option value="gray">{{'EYECOLORGRAY' | translate}}</ion-select-option>
+        <ion-select-option value="various">{{'EYECOLORVARIOUS' | translate}} </ion-select-option>
+        <ion-select-option value="black">{{'EYECOLORBLACK' | translate}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.eye_color.valid && dermatologicalForm.controls.eye_color.touched">*
+      {{'FIELDREQUIRED' | translate}} </ion-label>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-select formControlName="hair_coloring" required placeholder="{{'HAIRCOLOR' | translate}}" interface="action-sheet">
+        <ion-select-option value="black">Black</ion-select-option>
+        <ion-select-option value="chestnut">Chestnut</ion-select-option>
+        <ion-select-option value="blond">Blond</ion-select-option>
+        <ion-select-option value="red">Red or Orange Red</ion-select-option>
+        <ion-select-option value="grey">Grey</ion-select-option>
+        <ion-select-option value="white">White</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.hair_coloring.valid && dermatologicalForm.controls.hair_coloring.touched">*
+      {{'FIELDREQUIRED' | translate}} </ion-label>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-select formControlName="tan_effect" required placeholder="{{'TANEFFECT' | translate}}" interface="action-sheet">
+        <ion-select-option value="always">{{'TANEFFECTALWAYS' | translate}}</ion-select-option>
+        <ion-select-option value="sometimes">{{'TANEFFECTSOMETIME' | translate}}</ion-select-option>
+        <ion-select-option value="occasionally">{{'TANEFFECTOCCASIONALLY' | translate}}</ion-select-option>
+        <ion-select-option value="easy">{{'TANEFFECTLITTLE' | translate}}</ion-select-option>
+        <ion-select-option value="rarely">{{'TANEFFECTRARELY' | translate}}</ion-select-option>
+        <ion-select-option value="never">{{'TANEFFECTNEVER' | translate}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.tan_effect.valid && dermatologicalForm.controls.tan_effect.touched">*
+      {{'FIELDREQUIRED' | translate}} </ion-label>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-select formControlName="sun_tolerance" required placeholder="{{'SUNTOLERANCE' | translate}}" interface="action-sheet">
+        <ion-select-option value="very sensible">{{'SUNTOLERANCEVERYSENSIBLE' | translate}}</ion-select-option>
+        <ion-select-option value="sensible">{{'SUNTOLERANCESENSIBLE' | translate}}</ion-select-option>
+        <ion-select-option value="sensitive">{{'SUNTOLERANCESENSITIVE' | translate}}</ion-select-option>
+        <ion-select-option value="normal">{{'SUNTOLERANCENORMAL' | translate}}</ion-select-option>
+        <ion-select-option value="tolerates sun">{{'SUNTOLERANCETOLERATES' | translate}}</ion-select-option>
+        <ion-select-option value="very tolerant">{{'SUNTOLERANCEVERYTOLERANT' | translate}}</ion-select-option>
+        <ion-select-option value="high tolerance">{{'SUNTOLERANCEHIGH' | translate}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="center">
+    <ion-label color="danger"
+      *ngIf="!dermatologicalForm.controls.sun_tolerance.valid && dermatologicalForm.controls.sun_tolerance.touched">*
+      {{'FIELDREQUIRED' | translate}} </ion-label>
+  </div>
+
+</form>
+
+<div class="center">
+  <ion-button [disabled]="!dermatologicalForm.valid" (click)="sendRegister()" color="secondary"
+    class="bt_create_account">{{"DERMATOLOGICALPROFILEREGISTER"|translate}}</ion-button>
+</div>
+
+
+<ion-content>
+
+  <ion-tabs>
+
+    <ion-tab-bar color="primary" slot="bottom">
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="search"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="settings">
+        <ion-icon name="heart"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="account">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>
