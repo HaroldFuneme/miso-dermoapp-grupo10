@@ -13,9 +13,6 @@ import { DermatologicalProfile } from '../../models/DermatologicalProfile';
   styleUrls: ['./dermatological-profile-register.page.scss'],
 })
 export class DermatologicalProfileRegisterPage implements OnInit {
-
-
-
   dermatologicalForm = new FormGroup({
     photo_type: new FormControl('', [Validators.required]),
     tone_skin: new FormControl('', [Validators.required]),
@@ -29,22 +26,17 @@ export class DermatologicalProfileRegisterPage implements OnInit {
     private router: Router,
     private sendRegisterService: SendRegisterService,
     private userSessionService: UserSessionService
-  ) { }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async sendRegister() {
     const session = this.userSessionService.getSession();
     const dermaProfile: DermatologicalProfile = this.dermatologicalForm.value;
-    console.log(dermaProfile);
     this.sendRegisterService.send(session.username, dermaProfile).subscribe({
-      complete: ( ) => {  console.log('Completed...'); },
-      error: (e) => { console.log(e); },
       next: (res) => {
-        console.log('Sended...', res);
         this.goHome();
-      }
+      },
     });
   }
 
@@ -55,5 +47,4 @@ export class DermatologicalProfileRegisterPage implements OnInit {
   goHome() {
     this.router.navigateByUrl('/home');
   }
-
 }

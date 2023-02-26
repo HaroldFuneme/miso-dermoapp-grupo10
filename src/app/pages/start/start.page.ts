@@ -14,8 +14,6 @@ export class StartPage implements OnInit {
     private translateService: TranslateService,
     private router: Router
   ) {
-    this.translateService.setDefaultLang('English');
-    this.translateService.addLangs(['English', 'Español']);
     this.languages = translateService.getLangs();
   }
 

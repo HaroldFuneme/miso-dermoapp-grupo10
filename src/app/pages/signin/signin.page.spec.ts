@@ -5,6 +5,7 @@ import { SigninPage } from './signin.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { Auth } from 'aws-amplify';
 
 describe('SigninPage', () => {
   let component: SigninPage;
@@ -37,5 +38,23 @@ describe('SigninPage', () => {
     component.goBack();
     expect(router.navigateByUrl).toHaveBeenCalledWith('/start');
     done();
+  });
+
+  it('should goDermatologicalProfile', () => {
+    spyOn(router, 'navigateByUrl').and.stub();
+    component.goDermatologicalProfile();
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/home');
+  });
+
+  it('should goDermatologicalProfile after login', async () => {
+    spyOn(Auth, 'signIn').and.returnValue(Promise.resolve({ user: {} } as any));
+    spyOn(router, 'navigateByUrl').and.stub();
+    await component.login();
+    expect(router.navigateByUrl).toHaveBeenCalledWith('/home');
+  });
+
+  it('should manage error', async () => {
+    spyOn(router, 'navigateByUrl').and.stub();
+    await component.login();
   });
 });

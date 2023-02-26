@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'case-register',
     loadChildren: () => import('./pages/case-register/case-register.module').then( m => m.CaseRegisterPageModule)
   },
+  {
+    path: 'case-detail/:id',
+    loadChildren: () => import('./pages/case-detail/case-detail.module').then( m => m.CaseDetailPageModule)
+  },
 
 ];
 

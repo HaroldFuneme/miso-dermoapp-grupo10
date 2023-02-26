@@ -1,25 +1,25 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RegisterCaseService } from './register-case.service';
+import { CasesService } from './cases.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('RegisterCaseService', () => {
-  let service: RegisterCaseService;
+describe('CasesService', () => {
+  let service: CasesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
     });
-    service = TestBed.inject(RegisterCaseService);
+    service = TestBed.inject(CasesService);
   });
 
   it('should be created', () => {
-    service.sendRegisterCase('test_id', 'fie', {});
+    service.getCases('test_id');
     expect(service).toBeTruthy();
   });
 
-  it('should uploadFile', () => {
-    service.uploadFile('file');
+  it('should be created', () => {
+    service.getCaseDetail('patientId', 'test_id');
     expect(service).toBeTruthy();
   });
 });

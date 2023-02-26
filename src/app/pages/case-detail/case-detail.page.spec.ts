@@ -1,39 +1,40 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { CaseRegisterPage } from './case-register.page';
-import { TranslateModule } from '@ngx-translate/core';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Router } from '@angular/router';
+import { CaseDetailPage } from './case-detail.page';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RegisterCaseService } from 'src/app/services/registerCase/register-case.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateControllerService } from 'src/app/services/translateController/translate-controller.service';
+import { Router } from '@angular/router';
 import { UserSessionService } from 'src/app/services/userSession/user-session.service';
+import { CasesService } from 'src/app/services/cases/cases.service';
 import { of } from 'rxjs';
 
-describe('CaseRegisterPage', () => {
-  let component: CaseRegisterPage;
-  let fixture: ComponentFixture<CaseRegisterPage>;
+describe('CaseDetailPage', () => {
+  let component: CaseDetailPage;
+  let fixture: ComponentFixture<CaseDetailPage>;
   let router: Router;
-  let registerCaseService: RegisterCaseService;
   let userSessionService: UserSessionService;
+  let caseService: CasesService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CaseRegisterPage],
+      declarations: [CaseDetailPage],
       imports: [
         IonicModule.forRoot(),
-        TranslateModule.forRoot(),
-        HttpClientTestingModule,
         RouterTestingModule,
+        HttpClientTestingModule,
+        TranslateModule.forRoot(),
+        // TranslateControllerService
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CaseRegisterPage);
+    fixture = TestBed.createComponent(CaseDetailPage);
     router = TestBed.inject(Router);
-    registerCaseService = TestBed.inject(RegisterCaseService);
     userSessionService = TestBed.inject(UserSessionService);
+    caseService = TestBed.inject(CasesService);
     component = fixture.componentInstance;
-    fixture.detectChanges();
     spyOn(userSessionService, 'getSession').and.returnValue({
       username: 'test',
       pool: undefined,
@@ -47,21 +48,18 @@ describe('CaseRegisterPage', () => {
       attributes: undefined,
       preferredMFA: '',
     });
+    spyOn(caseService, 'getCaseDetail').and.returnValue(of(true as any));
+    fixture.detectChanges();
   }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should navigate on goHome', () => {
+  it('should navigate on goHome', async () => {
     spyOn(router, 'navigateByUrl').and.stub();
-    component.goHome();
+    component.goBack();
+    await component.presentAlert();
     expect(router.navigateByUrl).toHaveBeenCalledWith('/home');
-  });
-
-  it('should sendRegisterProfile', () => {
-    spyOn(registerCaseService, 'sendRegisterCase').and.returnValue(of({}));
-    component.sendRegisterProfile();
-    expect(registerCaseService.sendRegisterCase).toHaveBeenCalled();
   });
 });

@@ -11,7 +11,6 @@ import { UserSessionService } from '../../services/userSession/user-session.serv
   styleUrls: ['./signin.page.scss'],
 })
 export class SigninPage implements OnInit {
-
   email = '';
   password = '';
 
@@ -19,31 +18,21 @@ export class SigninPage implements OnInit {
     private router: Router,
     private alertController: AlertController,
     private userSessionService: UserSessionService
-    ) { }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  goBack(){
+  goBack() {
     this.router.navigateByUrl('/start');
   }
-  goDermatologicalProfile(){
-    this.router.navigateByUrl('/dermatological-profile-register');
+  goDermatologicalProfile() {
+    this.router.navigateByUrl('/home');
   }
 
   async login() {
-    console.log(this.email);
-    console.log(this.password);
     try {
       const user = await Auth.signIn(this.email, this.password);
-      console.log(JSON.stringify(user));
       this.userSessionService.setSession(user);
-
-      const session = await Auth.currentSession();
-      const accessToken = session.getAccessToken().getJwtToken();
-
-      console.log(JSON.stringify(session));
-      console.log(JSON.stringify(accessToken));
       this.goDermatologicalProfile();
     } catch (error) {
       const alert = await this.alertController.create({
@@ -54,8 +43,6 @@ export class SigninPage implements OnInit {
       });
 
       await alert.present();
-      console.log('error signing in', error);
     }
   }
-
 }

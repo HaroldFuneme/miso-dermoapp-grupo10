@@ -1,0 +1,25 @@
+.case-icons {
+  display: flex;
+  // align-items: center;
+  margin: 20px auto;
+  gap: 5px;
+  .case-icon-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+.property-value{
+  margin: auto;
+}
+
+.cta{
+  margin: 20px auto;
+}
+
+.my-modal{
+  background-color: red
+}
