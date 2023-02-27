@@ -17,4 +17,9 @@ describe('UserSessionService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return session', () => {
+    service.currentSession = true as any;
+    expect(service.getSession()).toBeTruthy();
+  });
 });

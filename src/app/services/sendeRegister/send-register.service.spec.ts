@@ -15,6 +15,7 @@ describe('SendRegisterService', () => {
   });
 
   it('should be created', () => {
+    service.send('test_id', {});
     expect(service).toBeTruthy();
   });
 });

@@ -17,7 +17,6 @@
   "HOME": "Inicio - Casos Registrados",
   "CASESREGISTER": "Registro de Caso",
 
-
   "PHOTOTYPES": "Fototipos (I - VI)",
   "PHOTOTYPESI": "Fototipos I",
   "PHOTOTYPESII": "Fototipos II",
@@ -53,7 +52,6 @@
   "HAIRCOLORGREY": "Gris",
   "HAIRCOLORWHITE": "Blanco",
 
-  
   "TANEFFECT": "Efecto bronceado",
   "TANEFFECTALWAYS": "Siempre me quemo",
   "TANEFFECTSOMETIME": "Algunas veces me quemo",
@@ -61,7 +59,6 @@
   "TANEFFECTLITTLE": "Bronceso facil poco me quemo",
   "TANEFFECTRARELY": "Rara vez me quemo, broceo facil",
   "TANEFFECTNEVER": "Nunca me quemo",
-
 
   "SUNTOLERANCE": "Tolerancia al sol",
   "SUNTOLERANCEVERYSENSIBLE": "Muy sensible",
@@ -71,6 +68,7 @@
   "SUNTOLERANCETOLERATES": "Tolera sol",
   "SUNTOLERANCEVERYTOLERANT": "Muy tolerante",
   "SUNTOLERANCEHIGH": "Tolerantcia alta",
+
   "CASE_RECODRD_TITLE": "Registro de Caso Dermatológico",
   "CASE_NAME": "Nombre del caso",
 
@@ -82,8 +80,8 @@
   "INJURY_TYPE_NODULE": "Nódulo",
   "INJURY_TYPE_BLISTER": "Ampolla",
   "INJURY_TYPE_ULCER": "Úlcera",
-
   "INJURY_TYPE_VESICLE": "Vesícula",
+
   "INJURY_SHAPE": "Forma",
   "INJURY_SHAPE_RING": "Anillo",
   "INJURY_SHAPE_DOME": "Domo",
@@ -110,5 +108,23 @@
   "INJURY_COLOR_BLUE": "Azul",
   "INJURY_COLOR_BLACK": "Negro",
   "INJURY_IMAGE": "Subir imagen",
-  "CASE_REGISTER_BUTTON": "Registrar Caso"
+  "CASE_REGISTER_BUTTON": "Registrar Caso",
+
+  "CASE_DETAIL_TITLE": "Detalle del caso",
+  "INJURY_TYPE_LABEL": "Herida",
+  "INJURY_SHAPE_LABEL": "Forma",
+  "NUMBER_LESSIONS_LABEL": "Numero",
+  "INJURY_DISTRIBUTION_LABEL": "Distri",
+  "INJURY_COLOR_LABEL": "Color",
+
+  "DIAGNOSIS_TITLE": "Diagnósticos",
+  "DIAGNOSIS_BUTTON": "Generar diagnóstico",
+  "DIAGNOSIS_LEGAL_TERMS": "Para poder utilizar nuestra aplicación y/o recibir nuestros servicios, debe tener al menos 18 años, o la mayoría de edad legal en su jurisdicción, y poseer la autoridad legal, el derecho y la libertad para suscribir estos términos como un acuerdo vinculante. No podrá utilizar esta aplicación ni recibir servicios si está prohibido en su país o en virtud de cualquier ley o normativa aplicable. ley o reglamento que le sea aplicable.",
+
+  "CHANGE_LANG_TITLE": "Seleccione un idioma",
+  "EN": "Ingles",
+  "ES": "Español",
+
+  "CONTINUE": "Continuar",
+  "CANCEL": "Cancelar"
 }

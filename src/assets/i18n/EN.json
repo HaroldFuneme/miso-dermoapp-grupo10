@@ -17,7 +17,6 @@
   "HOME": "Home - Registered Cases",
   "CASESREGISTER": "Cases Register",
 
-
   "PHOTOTYPES": "Phototypes (I - VI)",
   "PHOTOTYPESI": "Phototypes I",
   "PHOTOTYPESII": "Phototypes II",
@@ -53,7 +52,6 @@
   "HAIRCOLORGREY": "Grey",
   "HAIRCOLORWHITE": "White",
 
-  
   "TANEFFECT": "Tan Effect",
   "TANEFFECTALWAYS": "I Always Burn",
   "TANEFFECTSOMETIME": "Sometimes I Burn",
@@ -61,7 +59,6 @@
   "TANEFFECTLITTLE": "Tan Easy Little I Burn",
   "TANEFFECTRARELY": "I Rarely burn easy Tan",
   "TANEFFECTNEVER": "I never burn",
-
 
   "SUNTOLERANCE": "Sun tolerance",
   "SUNTOLERANCEVERYSENSIBLE": "Very Sensible",
@@ -74,9 +71,8 @@
 
   "CASE_RECODRD_TITLE": "Dermatological Case Record",
   "CASE_NAME": "Case Name",
-  "INJURY_TYPE": "Type of Injury",
 
-  "INJURY_SHAPE_RING": "Ring",
+  "INJURY_TYPE": "Type of Injury",
   "INJURY_TYPE_BLISTER": "Blister",
   "INJURY_TYPE_MACULE": "Macule",
   "INJURY_TYPE_PAPULE": "Papule",
@@ -85,20 +81,21 @@
   "INJURY_TYPE_NODULE": "Nodule",
   "INJURY_TYPE_ULCER": "Ulcer",
   "INJURY_TYPE_VESICLE": "Vesicle",
-  "INJURY_SHAPE": "Shape",
 
+  "INJURY_SHAPE": "Shape",
   "INJURY_SHAPE_DOME": "Dome",
+  "INJURY_SHAPE_RING": "Ring",
   "INJURY_SHAPE_OVAL": "Oval",
   "INJURY_SHAPE_ROUND": "Round",
   "INJURY_SHAPE_INDEFINITE": "Indefinite",
   "INJURY_SHAPE_COILED": "Coiled",
-  "NUMBER_LESSIONS": "Number Of Lesions",
 
+  "NUMBER_LESSIONS": "Number Of Lesions",
   "NUMBER_LESSIONS_SOLITARY": "Solitary",
   "NUMBER_LESSIONS_MULTIPLE": "Multiple",
   "NUMBER_LESSIONS_RECURRENT": "Recurrent",
-
   "NUMBER_LESSIONS_DISSEMINATED": "Disseminated",
+
   "INJURY_DISTRIBUTION": "Distributions",
   "INJURY_DISTRIBUTION_ASYMMETRIC": "Asymmetric",
   "INJURY_DISTRIBUTION_CONFLUENT": "Confluent",
@@ -111,6 +108,23 @@
   "INJURY_COLOR_BLUE": "Blue",
   "INJURY_COLOR_BLACK": "Black",
   "INJURY_IMAGE": "Image upload",
-  "CASE_REGISTER_BUTTON": "Register case"
+  "CASE_REGISTER_BUTTON": "Register case",
 
+  "CASE_DETAIL_TITLE": "Case details",
+  "INJURY_TYPE_LABEL": "Injury",
+  "INJURY_SHAPE_LABEL": "Shape",
+  "NUMBER_LESSIONS_LABEL": "Lessions",
+  "INJURY_DISTRIBUTION_LABEL": "Distri",
+  "INJURY_COLOR_LABEL": "Color",
+
+  "DIAGNOSIS_TITLE": "Diagnostics",
+  "DIAGNOSIS_BUTTON": "Generate Diagnostic",
+  "DIAGNOSIS_LEGAL_TERMS": "In order to use our app and/or receive our services, you must be at least 18 years of age, or the legal age of majority in your jurisdiction, and possess the legal authority, right and freedom to enter into these terms as a binding agreement. You may not use this app or receive services if it is prohibited in your country or under any applicable law or regulation. law or regulation applicable to you.",
+
+  "CHANGE_LANG_TITLE": "Select language",
+  "EN": "English",
+  "ES": "Spanish",
+
+  "CONTINUE": "Ok",
+  "CANCEL": "Cancel"
 }

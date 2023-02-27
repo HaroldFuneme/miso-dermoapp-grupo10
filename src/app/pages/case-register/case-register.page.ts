@@ -15,8 +15,6 @@ import { v4 as uuidv4 } from 'uuid';
 export class CaseRegisterPage implements OnInit {
   public imageSelected: any;
 
-
-
   readonly injuryTypes = {
     name: 'INJURY_TYPE',
     items: [
@@ -82,7 +80,7 @@ export class CaseRegisterPage implements OnInit {
   constructor(
     private router: Router,
     private registerCaseService: RegisterCaseService,
-    private userSessionService: UserSessionService,
+    private userSessionService: UserSessionService
   ) {}
 
   ngOnInit() {}
@@ -91,31 +89,29 @@ export class CaseRegisterPage implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
-  sendRegisterProfile(){
-    console.log(this.caseForm.value);
-    console.log(this.imageSelected);
-    this.registerCaseService.sendRegisterCase(this.userSessionService.getSession().username, this.imageSelected, this.caseForm.value)
-    .subscribe({
-      complete: ( ) => {  console.log('Completed...'); },
-      error: (e) => { console.log(e); },
-      next: (res) => {
-        console.log('Sended...', res);
-        this.goHome();
-      }
-    });
-
+  sendRegisterProfile() {
+    this.registerCaseService
+      .sendRegisterCase(
+        this.userSessionService.getSession().username,
+        this.imageSelected,
+        this.caseForm.value
+      )
+      .subscribe({
+        next: (res) => {
+          console.log('Sended...', res);
+          this.goHome();
+        },
+      });
   }
 
-  async uploadImage(){
+  async uploadImage() {
     console.log('uploading ...');
     this.imageSelected = await Camera.getPhoto({
       quality: 90,
       allowEditing: true,
-      resultType: CameraResultType.Base64
-    })
-    .catch(e => {
+      resultType: CameraResultType.Base64,
+    }).catch((e) => {
       console.log('Error uploading photo ...', e);
     });
   }
-
 }
