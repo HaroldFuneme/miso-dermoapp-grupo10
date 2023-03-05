@@ -2,10 +2,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Camera, CameraResultType } from '@capacitor/camera';
 import { RegisterCaseService } from '../../services/registerCase/register-case.service';
 import { UserSessionService } from '../../services/userSession/user-session.service';
 import { v4 as uuidv4 } from 'uuid';
+import { S3Service } from '../../services/s3/s3.service';
+
 
 @Component({
   selector: 'app-case-register',
@@ -13,6 +14,12 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./case-register.page.scss'],
 })
 export class CaseRegisterPage implements OnInit {
+  ACL = 'public-read';
+  BUCKET_NAME = 'cases-resources';
+  PATIENT_ID = '';
+  NAME_CASE= '';
+  file: any = '';
+
   public imageSelected: any;
 
   readonly injuryTypes = {
@@ -75,12 +82,14 @@ export class CaseRegisterPage implements OnInit {
     number_of_lessions: new FormControl('', [Validators.required]),
     distributions: new FormControl('', [Validators.required]),
     color: new FormControl('', [Validators.required]),
+    image_selected: new FormControl('', [Validators.required]),
   });
 
   constructor(
     private router: Router,
     private registerCaseService: RegisterCaseService,
-    private userSessionService: UserSessionService
+    private userSessionService: UserSessionService,
+    private s3Service: S3Service
   ) {}
 
   ngOnInit() {}
@@ -90,28 +99,45 @@ export class CaseRegisterPage implements OnInit {
   }
 
   sendRegisterProfile() {
+
+    this.PATIENT_ID = this.userSessionService.getSession().username;
+    this.NAME_CASE = this.caseForm.value.name;
+    const path_s3 = `${this.PATIENT_ID}/${this.NAME_CASE}/${this.file.name}`;
+    this.caseForm.value.image_selected = path_s3;
+
+    const params = {
+      Bucket: this.BUCKET_NAME,
+      Key: path_s3,
+      Body: this.file,
+      ACL: this.ACL
+    };
+    const s3 = this.s3Service.s3();
+   const upload = s3.upload(params, (err, data) => {
+      if (err) {
+        console.log(`ERROR uploaded file named: ${params.Key} to s3. :  ${err}`);
+        return;
+      }
+      console.log(`File uploaded successfully. ${data.Location}`);
+    }).promise();
+
     this.registerCaseService
       .sendRegisterCase(
         this.userSessionService.getSession().username,
-        this.imageSelected,
         this.caseForm.value
       )
       .subscribe({
         next: (res) => {
           console.log('Sended...', res);
-          this.goHome();
+          upload.then(()=> {
+            this.goHome();
+          });
         },
       });
   }
 
-  async uploadImage() {
-    console.log('uploading ...');
-    this.imageSelected = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: true,
-      resultType: CameraResultType.Base64,
-    }).catch((e) => {
-      console.log('Error uploading photo ...', e);
-    });
+  onFileSelected(event) {
+    const file: File = event.target.files[0];
+    this.file = file;
+    console.log(file);
   }
 }

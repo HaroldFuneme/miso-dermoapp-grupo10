@@ -12,7 +12,7 @@ export class RegisterCaseService {
   ) { }
 
 
-  sendRegisterCase(id: any, file: any, form: any){
+  sendRegisterCase(id: any, form: any){
     const urlRegisterProfile = `https://y3ai500geb.execute-api.us-east-1.amazonaws.com/Prod/patient/${id}/case`;
     //this.uploadFile(file);
     return this.http.post(urlRegisterProfile, form);

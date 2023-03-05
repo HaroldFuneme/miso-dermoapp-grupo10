@@ -49,8 +49,9 @@ describe('CaseRegisterPage', () => {
     });
   }));
 
-  it('should create', () => {
+  it('should create', (done) => {
     expect(component).toBeTruthy();
+    done();
   });
 
   it('should navigate on goHome', () => {

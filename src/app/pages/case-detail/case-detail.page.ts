@@ -55,6 +55,7 @@ export class CaseDetailPage implements OnInit {
     number_of_lessions: '',
     patient_id: '',
     shape: '',
+    image_selected: ''
   };
 
   constructor(
