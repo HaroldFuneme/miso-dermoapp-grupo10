@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case, CasesService } from 'src/app/services/cases/cases.service';
 import { UserSessionService } from 'src/app/services/userSession/user-session.service';
+import { S3Service } from '../../services/s3/s3.service';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,15 @@ import { UserSessionService } from 'src/app/services/userSession/user-session.se
 })
 export class HomePage implements OnInit {
   caseList: Case[] = [];
+  imageUrl = '';
+  imageLoaded = false;
 
   constructor(
     private router: Router,
     private caseService: CasesService,
-    private userSessionService: UserSessionService
-  ) {}
+    private userSessionService: UserSessionService,
+    private s3Service: S3Service
+  ) { }
 
   ngOnInit() {
   }
@@ -25,6 +29,7 @@ export class HomePage implements OnInit {
       .getCases(this.userSessionService.getSession().username)
       .subscribe({
         next: (res) => {
+          console.log(JSON.stringify(res));
           this.caseList = res;
         },
       });
@@ -36,5 +41,10 @@ export class HomePage implements OnInit {
 
   goBack() {
     this.router.navigateByUrl('/start');
+  }
+
+
+  async checkImageExists() {
+
   }
 }

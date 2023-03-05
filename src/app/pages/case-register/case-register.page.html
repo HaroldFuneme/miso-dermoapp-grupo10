@@ -63,16 +63,21 @@
         </ion-select-option>
       </ion-select>
     </ion-item>
-
+<!-- 
     <ion-item fill="outline" class="case-register__item">
       <ion-label class="case-register__label">{{'INJURY_IMAGE'|translate}}</ion-label>
       <ion-input class="case-register__input" formControlName="name"></ion-input>
-      <ion-icon type="file" (click)="uploadImage()" class="case-register__icon" name="cloud-upload" slot="end" color="secondary-contrast" size="large"></ion-icon>
+      <ion-icon type="file"  class="case-register__icon" name="cloud-upload" slot="end" color="secondary-contrast" size="large"></ion-icon>
+    </ion-item> -->
+
+    <ion-item>
+      <input formControlName="image_selected" type="file" (change)="onFileSelected($event)">
     </ion-item>
+
 
     <div></div>
   </ion-list>
-
+ 
 </form>
 
 

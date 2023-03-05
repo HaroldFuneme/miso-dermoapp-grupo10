@@ -14,7 +14,7 @@ describe('RegisterCaseService', () => {
   });
 
   it('should be created', () => {
-    service.sendRegisterCase('test_id', 'fie', {});
+    service.sendRegisterCase('test_id', 'fie');
     expect(service).toBeTruthy();
   });
 

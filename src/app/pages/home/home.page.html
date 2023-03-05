@@ -26,7 +26,7 @@
     <ng-template #elseTemplate>
       <ion-item *ngFor="let case of caseList" [routerLink]="['/case-detail', case.case_id]">
         <ion-thumbnail slot="start">
-          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          <img  alt="Silhouette of mountains" src="https://d10nlbax8jwfa8.cloudfront.net/{{case.image_selected}}" />
         </ion-thumbnail>
 
         <ion-label lines="full">

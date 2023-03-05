@@ -11,6 +11,7 @@ export interface Case {
   number_of_lessions: string;
   patient_id: string;
   shape: string;
+  image_selected: string;
 }
 
 @Injectable({

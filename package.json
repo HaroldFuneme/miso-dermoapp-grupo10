@@ -33,6 +33,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "aws-amplify": "^5.0.12",
+    "aws-sdk": "^2.1327.0",
     "ionicons": "^6.0.3",
     "jasmine": "^4.5.0",
     "rxjs": "~6.6.0",
