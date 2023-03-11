@@ -17,7 +17,7 @@
 <ion-content>
 
   <ion-list lines="none">
-    <ion-item>
+    <ion-item class="container-image">
       <img alt="" src="https://d10nlbax8jwfa8.cloudfront.net/{{caseValues.image_selected}}"/>
     </ion-item>
     <ion-item>
@@ -43,7 +43,7 @@
     <ion-list-header>
       <h1>{{'DIAGNOSIS_TITLE' |translate}}</h1>
     </ion-list-header>
-    <ion-item lines="full" *ngFor="let dioagnosiItem of caseDiagnosis; let i=index">
+    <ion-item [routerLink]="['/case-detail', caseValues.case_id]" lines="full" *ngFor="let dioagnosiItem of caseDiagnosis; let i=index">
       <ion-button slot="start" size="default" [color]="dioagnosiItem.doctor_id?'secondary':'primary'">
         <ion-icon slot="icon-only" [name]="dioagnosiItem.doctor_id?'person':'print'"></ion-icon>
       </ion-button>
@@ -59,7 +59,8 @@
       </ion-button>
 
     </ion-item>
-    <ion-item lines="full">
+
+    <ion-item [routerLink]="['/diagnostic-detail', caseValues.case_id]" lines="full">
       <ion-button slot="start" size="default" color="primary">
         <ion-icon slot="icon-only" [name]="'print'"></ion-icon>
       </ion-button>
@@ -79,7 +80,6 @@
     <ion-item lines="none">
       <ion-button (click)="presentAlert()" size="default" class="cta" color="secondary"
         shape="round">{{'DIAGNOSIS_BUTTON' |translate}}</ion-button>
-
     </ion-item>
 
 

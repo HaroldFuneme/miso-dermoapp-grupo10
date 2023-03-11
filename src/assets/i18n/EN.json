@@ -129,5 +129,7 @@
   "ES": "Spanish",
 
   "CONTINUE": "Ok",
-  "CANCEL": "Cancel"
+  "CANCEL": "Cancel",
+
+  "DIAGNOSTIC_DETAIL_TITLE": "Diagnostic Detail"
 }
