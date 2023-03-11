@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { AlertController, IonicModule } from '@ionic/angular';
 
 import { CaseDetailPage } from './case-detail.page';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -10,6 +10,17 @@ import { Router } from '@angular/router';
 import { UserSessionService } from 'src/app/services/userSession/user-session.service';
 import { CasesService } from 'src/app/services/cases/cases.service';
 import { of } from 'rxjs';
+import { By } from '@angular/platform-browser';
+
+let firstHandler = () => null;
+let secondHandler = (props?: any) => null;
+const alertController = {
+  create: (props) => {
+    firstHandler = props.buttons[0].handler;
+    secondHandler = props.buttons[1].handler;
+    return Promise.resolve({ present: () => Promise.resolve(true) });
+  },
+};
 
 describe('CaseDetailPage', () => {
   let component: CaseDetailPage;
@@ -27,6 +38,12 @@ describe('CaseDetailPage', () => {
         HttpClientTestingModule,
         TranslateModule.forRoot(),
         // TranslateControllerService
+      ],
+      providers: [
+        {
+          provide: AlertController,
+          useValue: alertController,
+        },
       ],
     }).compileComponents();
 
@@ -48,7 +65,9 @@ describe('CaseDetailPage', () => {
       attributes: undefined,
       preferredMFA: '',
     });
-    spyOn(caseService, 'getCaseDetail').and.returnValue(of(true as any));
+    spyOn(caseService, 'getCaseDetail').and.returnValue(of([] as any));
+    spyOn(caseService, 'getCaseDiagnosis').and.returnValue(of([] as any));
+    spyOn(caseService, 'updateCase').and.returnValue(of(true as any));
     fixture.detectChanges();
   }));
 
@@ -56,10 +75,22 @@ describe('CaseDetailPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should navigate on goHome', async () => {
+  it('should navigate on goHome', () => {
     spyOn(router, 'navigateByUrl').and.stub();
     component.goBack();
-    await component.presentAlert();
     expect(router.navigateByUrl).toHaveBeenCalledWith('/home');
+  });
+
+  it('should request doctor diagnosis', async () => {
+    await component.presentAlert();
+    await secondHandler('doctor');
+    expect(caseService.updateCase).toHaveBeenCalled();
+  });
+
+  it('should mock ontologyc diagnosis', async () => {
+    const iniitalLength = component.caseDiagnosis.length;
+    await component.presentAlert();
+    secondHandler();
+    expect(component.caseDiagnosis.length).toBe(iniitalLength + 1);
   });
 });

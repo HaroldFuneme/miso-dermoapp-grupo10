@@ -120,6 +120,9 @@
   "DIAGNOSIS_TITLE": "Diagnostics",
   "DIAGNOSIS_BUTTON": "Generate Diagnostic",
   "DIAGNOSIS_LEGAL_TERMS": "In order to use our app and/or receive our services, you must be at least 18 years of age, or the legal age of majority in your jurisdiction, and possess the legal authority, right and freedom to enter into these terms as a binding agreement. You may not use this app or receive services if it is prohibited in your country or under any applicable law or regulation. law or regulation applicable to you.",
+  "DIAGNOSTIC_CREATED": "Your diagnostic request was created correctly and will be visible once it is seen by a doctor",
+  "DIAGNOSIS_ITEM_TITLE": "Diagnostic",
+  "ONTOLOGY_DIAGNOSIS": "Online Ontology",
 
   "CHANGE_LANG_TITLE": "Select language",
   "EN": "English",
