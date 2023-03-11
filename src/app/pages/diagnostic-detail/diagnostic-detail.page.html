@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+
+    <ion-title>{{"DIAGNOSTIC_DETAIL_TITLE"| translate}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="translateController.showTranslateOption()"><ion-icon
+          name="ellipsis-vertical"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="height: 80%; overflow-y: scroll;">
+  <ion-list lines="none">
+    <ion-item class="container-image">
+      <img alt="" src="https://d10nlbax8jwfa8.cloudfront.net/{{caseValues.image_selected}}" />
+    </ion-item>
+  </ion-list>
+
+  <ion-item style="--border-width: 0; --border-color: transparent;">
+    <ion-button slot="start" size="default" color="primary">
+      <ion-icon slot="icon-only" [name]="'print'"></ion-icon>
+    </ion-button>
+    <ion-label style="--border: none">
+      <h1>Diagnostic 2</h1>
+      <ion-text color="primary">
+        <p>Online Ontology</p>
+      </ion-text>
+    </ion-label>
+  </ion-item>
+
+  <div style="margin-left: 2rem; margin-right: 2rem;">
+    <h2>Título del párrafo</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci similique sint cumque aperiam corrupti
+      ducimus dicta molestiae. Eveniet consequuntur dolorum eius pariatur, ex obcaecati aspernatur libero modi ipsa
+      sunt.
+    </p>
+  </div>
+
+
+    <ion-item style="width: 80%; margin: 0 auto;">
+      <ion-button slot="start" size="default" color="primary">
+        <ion-icon slot="icon-only" [name]="'print'"></ion-icon>
+      </ion-button>
+      <ion-label>
+        <h1>Diagnostic 1</h1>
+        <ion-text color="primary">
+          <p>Online Ontology</p>
+        </ion-text>
+      </ion-label>
+
+      <ion-button slot="end" size="small" color="primary" shape="round">
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <ion-item style="width: 80%; margin: 0 auto;">
+      <ion-button slot="start" size="default" color="secondary">
+        <ion-icon slot="icon-only" [name]="'print'"></ion-icon>
+      </ion-button>
+      <ion-label>
+        <h1>Diagnostic 2</h1>
+        <ion-text color="secondary">
+          <p>Online Ontology</p>
+        </ion-text>
+      </ion-label>
+
+      <ion-button slot="end" size="small" color="secondary" shape="round">
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+    
+</ion-content>
+
+
+
+  <ion-tabs>
+    <ion-tab-bar color="primary" slot="bottom">
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="search"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="contact">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="settings">
+        <ion-icon name="heart"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="account">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
