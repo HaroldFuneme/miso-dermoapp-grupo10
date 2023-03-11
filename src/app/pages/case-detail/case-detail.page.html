@@ -18,7 +18,7 @@
 
   <ion-list lines="none">
     <ion-item class="container-image">
-      <img alt="" src="https://d10nlbax8jwfa8.cloudfront.net/{{caseValues.image_selected}}"/>
+      <img alt="" src="https://d10nlbax8jwfa8.cloudfront.net/{{caseValues.image_selected}}" />
     </ion-item>
     <ion-item>
       <div class="case-icons">
@@ -43,7 +43,7 @@
     <ion-list-header>
       <h1>{{'DIAGNOSIS_TITLE' |translate}}</h1>
     </ion-list-header>
-    <ion-item [routerLink]="['/case-detail', caseValues.case_id]" lines="full" *ngFor="let dioagnosiItem of caseDiagnosis; let i=index">
+    <ion-item lines="full" *ngFor="let dioagnosiItem of caseDiagnosis; let i=index" (click)="goDetail(i)">
       <ion-button slot="start" size="default" [color]="dioagnosiItem.doctor_id?'secondary':'primary'">
         <ion-icon slot="icon-only" [name]="dioagnosiItem.doctor_id?'person':'print'"></ion-icon>
       </ion-button>
@@ -55,24 +55,8 @@
       </ion-label>
 
       <ion-button slot="end" size="small" [color]="dioagnosiItem.doctor_id?'secondary':'primary'" shape="round">
-        <ion-icon name="ellipsis-horizontal" [name]="dioagnosiItem.doctor_id?'ellipsis-horizontal':'checkmark'" slot="icon-only"></ion-icon>
-      </ion-button>
-
-    </ion-item>
-
-    <ion-item [routerLink]="['/diagnostic-detail', caseValues.case_id]" lines="full">
-      <ion-button slot="start" size="default" color="primary">
-        <ion-icon slot="icon-only" [name]="'print'"></ion-icon>
-      </ion-button>
-      <ion-label>
-        <h1>Diagnostic 2</h1>
-        <ion-text color="primary">
-          <p>Online Ontology</p>
-        </ion-text>
-      </ion-label>
-
-      <ion-button slot="end" size="small" color="primary" shape="round">
-        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+        <ion-icon name="ellipsis-horizontal" [name]="dioagnosiItem.doctor_id?'ellipsis-horizontal':'checkmark'"
+          slot="icon-only"></ion-icon>
       </ion-button>
 
     </ion-item>

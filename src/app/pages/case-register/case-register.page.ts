@@ -7,7 +7,6 @@ import { UserSessionService } from '../../services/userSession/user-session.serv
 import { v4 as uuidv4 } from 'uuid';
 import { S3Service } from '../../services/s3/s3.service';
 
-
 @Component({
   selector: 'app-case-register',
   templateUrl: './case-register.page.html',
@@ -17,7 +16,7 @@ export class CaseRegisterPage implements OnInit {
   ACL = 'public-read';
   BUCKET_NAME = 'cases-resources';
   PATIENT_ID = '';
-  NAME_CASE= '';
+  NAME_CASE = '';
   file: any = '';
 
   public imageSelected: any;
@@ -99,7 +98,6 @@ export class CaseRegisterPage implements OnInit {
   }
 
   sendRegisterProfile() {
-
     this.PATIENT_ID = this.userSessionService.getSession().username;
     this.NAME_CASE = this.caseForm.value.name;
     const path_s3 = `${this.PATIENT_ID}/${this.NAME_CASE}/${this.file.name}`;
@@ -109,26 +107,30 @@ export class CaseRegisterPage implements OnInit {
       Bucket: this.BUCKET_NAME,
       Key: path_s3,
       Body: this.file,
-      ACL: this.ACL
+      ACL: this.ACL,
     };
     const s3 = this.s3Service.s3();
-   const upload = s3.upload(params, (err, data) => {
-      if (err) {
-        console.log(`ERROR uploaded file named: ${params.Key} to s3. :  ${err}`);
-        return;
-      }
-      console.log(`File uploaded successfully. ${data.Location}`);
-    }).promise();
+    const upload = s3
+      .upload(params, (err, data) => {
+        if (err) {
+          console.log(
+            `ERROR uploaded file named: ${params.Key} to s3. :  ${err}`
+          );
+          return;
+        }
+        console.log(`File uploaded successfully. ${data.Location}`);
+      })
+      .promise();
 
     this.registerCaseService
-      .sendRegisterCase(
-        this.userSessionService.getSession().username,
-        this.caseForm.value
-      )
+      .sendRegisterCase(this.userSessionService.getSession().username, {
+        ...this.caseForm.value,
+        patient_name: this.userSessionService.getSession().attributes.name,
+      })
       .subscribe({
         next: (res) => {
           console.log('Sended...', res);
-          upload.then(()=> {
+          upload.then(() => {
             this.goHome();
           });
         },

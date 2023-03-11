@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, IonModal } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { Case, CasesService } from 'src/app/services/cases/cases.service';
 import { TranslateControllerService } from 'src/app/services/translateController/translate-controller.service';
 import { UserSessionService } from 'src/app/services/userSession/user-session.service';
@@ -164,5 +164,14 @@ export class CaseDetailPage implements OnInit {
 
   goBack() {
     this.router.navigateByUrl('/home');
+  }
+
+  goDetail(index: number) {
+    if (this.caseDiagnosis[index].diagnose_id) {
+      this.caseService.selectedDiagnosis = this.caseDiagnosis[index];
+      this.router.navigateByUrl(
+        `/diagnostic-detail/${this.caseDiagnosis[index].diagnose_id}`
+      );
+    }
   }
 }

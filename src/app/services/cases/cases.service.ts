@@ -28,8 +28,18 @@ export interface Diagnosis {
   providedIn: 'root',
 })
 export class CasesService {
-  baseURL =
+  readonly baseURL =
     'https://y3ai500geb.execute-api.us-east-1.amazonaws.com/Prod/patient';
+
+  selectedDiagnosis: Diagnosis = {
+    diagnose: '',
+    diagnose_id: '',
+    doctor_name: '',
+    doctor_id: '',
+    case_id: '',
+    patient_id: '',
+    creation_date: '',
+  };
 
   constructor(private http: HttpClient) {}
 

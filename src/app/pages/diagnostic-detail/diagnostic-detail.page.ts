@@ -26,14 +26,14 @@ export class DiagnosticDetailPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private caseService: CasesService,
+    public caseService: CasesService,
     public translateController: TranslateControllerService,
     private router: Router,
     private userSessionService: UserSessionService,
   ) { }
 
   ngOnInit() {
-    this.caseId = this.route.snapshot.params.caseId;
+    this.caseId = this.caseService.selectedDiagnosis.case_id;
 
     this.caseService
     .getCaseDetail(
@@ -43,13 +43,8 @@ export class DiagnosticDetailPage implements OnInit {
     .subscribe({
       next: (res) => {
         this.caseValues = res;
-        console.log(res);
       },
     });
-  }
-
-  logScrolling(event) {
-    console.log(event);
   }
 
   goBack() {
