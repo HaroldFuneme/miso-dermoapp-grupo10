@@ -120,6 +120,9 @@
   "DIAGNOSIS_TITLE": "Diagnósticos",
   "DIAGNOSIS_BUTTON": "Generar diagnóstico",
   "DIAGNOSIS_LEGAL_TERMS": "Para poder utilizar nuestra aplicación y/o recibir nuestros servicios, debe tener al menos 18 años, o la mayoría de edad legal en su jurisdicción, y poseer la autoridad legal, el derecho y la libertad para suscribir estos términos como un acuerdo vinculante. No podrá utilizar esta aplicación ni recibir servicios si está prohibido en su país o en virtud de cualquier ley o normativa aplicable. ley o reglamento que le sea aplicable.",
+  "DIAGNOSTIC_CREATED": "Su solicitud de diagnostico fue creada correctamente y será visible una vez sea atendida por un medico",
+  "DIAGNOSIS_ITEM_TITLE": "Diagnóstico",
+  "ONTOLOGY_DIAGNOSIS": "Diagnóstico ontologico",
 
   "CHANGE_LANG_TITLE": "Seleccione un idioma",
   "EN": "Ingles",

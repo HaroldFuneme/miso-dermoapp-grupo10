@@ -55,8 +55,10 @@ export class CaseDetailPage implements OnInit {
     number_of_lessions: '',
     patient_id: '',
     shape: '',
-    image_selected: ''
+    image_selected: '',
   };
+
+  caseDiagnosis = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -78,6 +80,49 @@ export class CaseDetailPage implements OnInit {
           this.caseValues = res;
         },
       });
+    this.caseService
+      .getCaseDiagnosis(
+        this.userSessionService.getSession().username,
+        this.route.snapshot.params.id
+      )
+      .subscribe({
+        next: (res) => {
+          this.caseDiagnosis = res;
+        },
+      });
+  }
+
+  async requestDoctorDiagnosis() {
+    this.caseService
+      .updateCase(
+        this.userSessionService.getSession().username,
+        this.route.snapshot.params.id,
+        { status: 'Available' }
+      )
+      .subscribe({
+        next: async (res) => {
+          const alert = await this.alertController.create({
+            header: await this.translateController.getTranslation(
+              'DIAGNOSIS_TITLE'
+            ),
+            message: await this.translateController.getTranslation(
+              'DIAGNOSTIC_CREATED'
+            ),
+            buttons: [
+              { text: await this.translateController.getTranslation('CANCEL') },
+              {
+                text: await this.translateController.getTranslation('CONTINUE'),
+              },
+            ],
+          });
+
+          await alert.present();
+        },
+      });
+  }
+
+  requestOntologyDiagnosis() {
+    this.caseDiagnosis.push({});
   }
 
   async presentAlert() {
@@ -88,19 +133,28 @@ export class CaseDetailPage implements OnInit {
       ),
       buttons: [
         { text: await this.translateController.getTranslation('CANCEL') },
-        { text: await this.translateController.getTranslation('CONTINUE') },
+        {
+          text: await this.translateController.getTranslation('CONTINUE'),
+          handler: (alertData) => {
+            if (alertData === 'doctor') {
+              this.requestDoctorDiagnosis();
+            } else {
+              this.requestOntologyDiagnosis();
+            }
+          },
+        },
       ],
       inputs: [
         {
           label: 'Doctor',
           type: 'radio',
-          value: 'red',
+          value: 'doctor',
           placeholder: 'esdafsaf',
         },
         {
           label: 'Ontologico',
           type: 'radio',
-          value: 'blue',
+          value: 'ontologico',
         },
       ],
     });

@@ -20,6 +20,8 @@ describe('CasesService', () => {
 
   it('should be created', () => {
     service.getCaseDetail('patientId', 'test_id');
+    service.getCaseDiagnosis('patientId', 'test_id');
+    service.updateCase('patientId', 'test_id', { status: 'new' });
     expect(service).toBeTruthy();
   });
 });
