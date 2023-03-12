@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
@@ -44,7 +45,13 @@ describe('CaseRegisterPage', () => {
       storage: undefined,
       keyPrefix: '',
       userDataKey: '',
-      attributes: undefined,
+      attributes: {
+        name: '',
+        birthdate: '',
+        email: '',
+        email_verified: false,
+        sub: '',
+      },
       preferredMFA: '',
     });
   }));

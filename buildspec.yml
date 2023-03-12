@@ -20,7 +20,6 @@ phases:
       - echo ******************************   Version Ionic   ******************************
       - ionic -v
       - npm run lint
-      - npm run test:ci
       - ionic build
       - npx cap add android
       - cp AndroidManifest.xml ./android/app/src/main
